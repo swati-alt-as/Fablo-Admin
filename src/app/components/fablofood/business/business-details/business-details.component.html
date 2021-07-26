@@ -1,3 +1,36 @@
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+           
+            <div class="page-header">
+                <div class="page-header-title">
+                    <h4>Business Details</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .size-20{
+        font-size: 20px;
+    }
+
+    .size-16{
+        font-size: 16px;
+    }
+
+    .m-0{
+        margin: 0px;
+    }
+
+    .border-e1{
+        border: 1px solid #e1e1e1;
+    }
+</style>
+
+
+
 <div class="row">
 
     <!-- <div class="col-md-12">
@@ -21,8 +54,427 @@
         </app-card>
     </div> -->
 
-    <div class="col-md-6">
-        <app-card cardTitle="Horizontal Description" [options]="false">
+    <div class="col-md-12">
+        
+        <div class="row">
+
+            <div class="col-lg-6">
+
+                <div class="card card-border-primary h-100">
+                    <div class="card-header">
+                        <h4 class="size-20 m-0">Basic Details</h4>
+                    </div>
+
+                    <div class="card-block">
+                        <div class="row">
+                            
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Business Name</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled ">
+                                    <li class="size-16">: {{businessDetail.business_name}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Contact Number</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.phone}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>City Name</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.city_name}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Business Type Name</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.business_type_name}}</li>
+                                </ul>
+                            </div>
+
+
+
+                        </div>
+
+                        
+                    </div>
+
+                    <!-- <div class="card-footer">
+                       
+                    </div> -->
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-lg-6 mt-4 mt-lg-0">
+
+                <div class="card card-border-primary h-100">
+                    <div class="card-header">
+                        <h4 class="size-20 m-0"> Payment Details</h4>
+                    </div>
+
+                    <div class="card-block">
+                        <div class="row">
+                            
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Settlement Rate</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled ">
+                                    <li class="size-16">: {{businessDetail.settlement_rate}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Paylater Payment Limit</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.paylater_payment_limit}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Other Payment Limit</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.other_payment_limit}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Category Name</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.category_english}} ({{businessDetail.category_hindi}} in Hindi)</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Settlement Type</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.settlement_type}}</li>
+                                </ul>
+                            </div>
+
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Wallet Amount</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.wallet}}</li>
+                                </ul>
+                            </div>
+
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Credit Score</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.credit}}</li>
+                                </ul>
+                            </div>
+
+
+
+                        </div>
+
+                        
+
+                    </div>
+
+                    <!-- <div class="card-footer">
+                       
+                    </div> -->
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-lg-6 mt-4">
+
+                <div class="card card-border-primary h-100">
+                    <div class="card-header">
+                        <h4 class="size-20 m-0"> Other Details</h4>
+                    </div>
+
+                    <div class="card-block">
+                        <div class="row">
+                            
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Agent Code</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled ">
+                                    <li class="size-16" *ngIf="!businessDetail.agent_code">: Not Available</li>
+                                    <li class="size-16" *ngIf="businessDetail.agent_code">: {{businessDetail.agent_code}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>QR</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><img class="d-block w-70 border-e1" src="{{businessDetail.qr}}" alt="qrimage" height="100px" width="100px"></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Kyc</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16" *ngIf="businessDetail.kyc_status == 0">: Not Submitted</li>
+                                    <li class="size-16" *ngIf="businessDetail.kyc_status == 1">: Approved</li>
+                                    <li class="size-16" *ngIf="businessDetail.kyc_status == 2">: Pending</li>
+                                    <li class="size-16" *ngIf="businessDetail.kyc_status == 3">: Rejected</li>
+                                    <li class="size-16" *ngIf="businessDetail.kyc_status == 4">: Blocked</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Listed</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16" *ngIf="businessDetail.listed == 0">: Not Visible to User's</li>
+                                    <li class="size-16" *ngIf="businessDetail.listed == 1">: Visible to User's</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Stage</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.stage}}</li>
+                                </ul>
+                            </div>
+
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Blocked</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16" *ngIf="businessDetail.blocked == 0">: Unblock</li>
+                                    <li class="size-16" *ngIf="businessDetail.blocked == 1">: Blocked</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        
+
+                    </div>
+
+                    <!-- <div class="card-footer">
+                       
+                    </div> -->
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-lg-6 mt-4">
+
+                <div class="card card-border-primary h-100">
+                    <div class="card-header">
+                        <h4 class="size-20 m-0">Store Details</h4>
+                    </div>
+
+                    <div class="card-block">
+                        <div class="row">
+                            
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Availability</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled ">
+                                    <li class="size-16">: {{businessDetail.availability}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Status</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.status}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Schema Version</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.schema_version}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Store Username</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.storeUsername}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Phone</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.phone}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Store Name</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.store_name}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>City Name</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.city_name}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Category English</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.category_english}}</li>
+                                </ul>
+                            </div>
+
+
+
+                        </div>
+
+                        
+                    </div>
+
+                    <!-- <div class="card-footer">
+                       
+                    </div> -->
+
+                </div>
+
+
+            </div>
+
+
+           
+
+        </div>
+         
+        <!-- <p class="mt-4"><b>Basic Details</b></p>
+
+        <hr />
+
+        
+        <dl class="dl-horizontal row">
+            <dt class="col-sm-4">Business Name</dt>
+            <dd class="col-sm-8">{{businessDetail.business_name}}</dd>
+
+            <dt class="col-sm-4">Contact Number</dt>
+            <dd class="col-sm-8">{{businessDetail.phone}}</dd>
+
+            <dt class="col-sm-4">City Name</dt>
+            <dd class="col-sm-8">{{businessDetail.city_name}}</dd>
+
+            <dt class="col-sm-4">Business Type Name</dt>
+            <dd class="col-sm-8">{{businessDetail.business_type_name}}</dd>
+
+        </dl>
+
             <dl class="dl-horizontal row">
                 <dt class="col-sm-4">Business Name</dt>
                 <dd class="col-sm-8">{{businessDetail.business_name}}</dd>
@@ -83,7 +535,7 @@
                 <dd class="col-sm-8" *ngIf="businessDetail.blocked == 1">Blocked</dd>
 
 
-            </dl>
-        </app-card>
+            </dl> -->
+      
     </div>
 </div>
