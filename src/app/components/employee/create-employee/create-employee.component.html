@@ -1,0 +1,150 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Create Employee" (options)="false">
+            <div class="row">
+                <div class="col-md-6">
+                    <form [formGroup]="createEmpForm" (ngSubmit)="saveCreateEmp()" action="javascript:">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Enter Name">
+                            <div *ngIf="f.name.touched && f.name.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.name.errors && f.name.errors.required">Name is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">Contact</label>
+                            <input type="number" class="form-control" id="contact" name="contact" formControlName="contact" placeholder="Enter Contact">
+                            <div *ngIf="f.contact.touched && f.contact.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.contact.errors && f.contact.errors.required">Contact is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="emergency_contact">Emergency Contact</label>
+                            <input type="text" class="form-control" id="emergency_contact" name="emergency_contact" formControlName="emergency_contact" placeholder="Enter Emergency Contact">
+                            <div *ngIf="f.emergency_contact.touched && f.emergency_contact.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.emergency_contact.errors && f.emergency_contact.errors.required">Emergency Contact is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" formControlName="email" placeholder="Enter Email">
+                            <div *ngIf="f.email.touched && f.email.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.email.errors && f.email.errors.required">Email is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" class="form-control" id="dob" name="dob" formControlName="dob" placeholder="Enter Date of Birth">
+                            <div *ngIf="f.dob.touched && f.dob.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.dob.errors && f.dob.errors.required">Date of Birth is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" class="form-control" id="password" name="password" formControlName="password" placeholder="Enter Password ">
+                            <div *ngIf="f.password.touched && f.password.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.password.errors && f.password.errors.required">Password is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="current">Current Address</label>
+                            <input type="text" class="form-control" id="current" name="current" formControlName="current" placeholder="Enter Current Address ">
+                            <div *ngIf="f.current.touched && f.current.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.current.errors && f.current.errors.required">Current Address is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="postal">Postal Address</label>
+                            <input type="text" class="form-control" id="postal" name="postal" formControlName="postal" placeholder="Enter Postal Address ">
+                            <div *ngIf="f.postal.touched && f.postal.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.postal.errors && f.postal.errors.required">Postal Address is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bank_name">Bank Name</label>
+                            <input type="text" class="form-control" id="bank_name" name="bank_name" formControlName="bank_name" placeholder="Enter Bank Name ">
+                            <div *ngIf="f.bank_name.touched && f.bank_name.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.bank_name.errors && f.bank_name.errors.required">Bank Name is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bank_ifsc">IFSC</label>
+                            <input type="text" class="form-control" id="bank_ifsc" name="bank_ifsc" formControlName="bank_ifsc" placeholder="Enter IFSC">
+                            <div *ngIf="f.bank_ifsc.touched && f.bank_ifsc.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.bank_ifsc.errors && f.bank_ifsc.errors.required">IFSC is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="account_number">Account Number</label>
+                            <input type="text" class="form-control" id="account_number" name="account_number" formControlName="account_number" placeholder="Enter Account Number ">
+                            <div *ngIf="f.account_number.touched && f.account_number.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.account_number.errors && f.account_number.errors.required">Account Number is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Select Blood Group</label>
+                            <select class="form-control" formControlName="bloodgroup" id="bloodgroup" name="bloodgroup">
+                              <option *ngFor="let bloodgroup of bloodGroupList" [value]="bloodgroup._id+'+++'+bloodgroup.name">
+                                {{bloodgroup.name}}</option>
+                            </select>
+                            <div *ngIf="f.bloodgroup.touched && f.bloodgroup.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.bloodgroup.errors && f.bloodgroup.errors.required">Blood Group is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Select Department</label>
+                            <select class="form-control" formControlName="department" id="department" name="department">
+                              <option *ngFor="let department of departmentList" [value]="department._id+'+++'+department.name+'+++'+department.code">
+                                {{department.name}}</option>
+                            </select>
+                            <div *ngIf="f.department.touched && f.department.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.department.errors && f.department.errors.required">Department is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Select Designation</label>
+                            <select class="form-control" formControlName="designation" id="designation" name="designation">
+                              <option *ngFor="let designation of designationList" [value]="designation._id+'+++'+designation.name+'+++'+designation.code">
+                                {{designation.name}}</option>
+                            </select>
+                            <div *ngIf="f.designation.touched && f.designation.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.designation.errors && f.designation.errors.required">Designation is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Select Education</label>
+                            <select class="form-control" formControlName="education" id="education" name="education">
+                              <option *ngFor="let education of educationList" [value]="education._id+'+++'+education.name">
+                                {{education.name}}</option>
+                            </select>
+                            <div *ngIf="f.education.touched && f.education.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.education.errors && f.education.errors.required">Education is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Select Employee Type</label>
+                            <select class="form-control" formControlName="empType" id="empType" name="empType">
+                              <option *ngFor="let empType of empTypeList" [value]="empType._id+'+++'+empType.name+'+++'+empType.code">
+                                {{empType.name}}</option>
+                            </select>
+                            <div *ngIf="f.empType.touched && f.empType.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.empType.errors && f.empType.errors.required">Employee Type is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Select Work Exprience</label>
+                            <select class="form-control" formControlName="workExp" id="workExp" name="workExp">
+                              <option *ngFor="let workExp of workExpList" [value]="workExp._id+'+++'+workExp.name">
+                                {{workExp.name}}</option>
+                            </select>
+                            <div *ngIf="f.workExp.touched && f.workExp.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.workExp.errors && f.workExp.errors.required">Work Exprience is required.</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" [disabled]="!createEmpForm.valid">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </app-card>
+    </div>
+</div>

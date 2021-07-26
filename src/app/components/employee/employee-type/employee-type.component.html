@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Add Employee Type" (options)="false">
+            <div class="row">
+                <div class="col-md-6">
+                    <form [formGroup]="empTypeForm" (ngSubmit)="saveEmpType()" action="javascript:">
+                        <div class="form-group">
+                            <label for="name">Department Type</label>
+                            <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Enter Department Type">
+                            <div *ngIf="f.name.touched && f.name.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.name.errors && f.name.errors.required">Department Type is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="code">Code</label>
+                            <input type="text" class="form-control" id="code" name="code" formControlName="code" placeholder="Enter Code">
+                            <div *ngIf="f.code.touched && f.code.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.code.errors && f.code.errors.required">Code is required.</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" [disabled]="!empTypeForm.valid">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </app-card>
+    </div>
+    <div class="col-xl-12">
+        <app-card cardTitle="Employee Type List" blockClass="table-border-style">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Department Type</th>
+                            <th>Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let empType of empTypeList">
+                            <td>1</td>
+                            <td>{{empType.name}}</td>
+                            <td>{{empType.code}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </app-card>
+    </div>
+</div>

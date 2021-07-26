@@ -1,0 +1,89 @@
+<div class="row">
+
+    <!-- <div class="col-md-12">
+        <app-card cardTitle="Horizontal Description" [options]="false">
+            <div *ngFor="let business of businessDetail">
+
+                <div class="card c-list">
+
+                    <div class="card-body">
+                        <div>
+                            <div class=" alert-outline">
+                                <div class="alert-message">
+                                    <h6><strong>Business Name</strong> - {{business.business_name}}</h6>
+                                    <h6><strong>Contact No.</strong> - {{business.phone}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </app-card>
+    </div> -->
+
+    <div class="col-md-6">
+        <app-card cardTitle="Horizontal Description" [options]="false">
+            <dl class="dl-horizontal row">
+                <dt class="col-sm-4">Business Name</dt>
+                <dd class="col-sm-8">{{businessDetail.business_name}}</dd>
+
+                <dt class="col-sm-4">Contact Number</dt>
+                <dd class="col-sm-8">{{businessDetail.phone}}</dd>
+
+                <dt class="col-sm-4">City Name</dt>
+                <dd class="col-sm-8">{{businessDetail.city_name}}</dd>
+
+                <dt class="col-sm-4">Business Type Name</dt>
+                <dd class="col-sm-8">{{businessDetail.business_type_name}}</dd>
+
+                <dt class="col-sm-4">Settlement Rate</dt>
+                <dd class="col-sm-8">{{businessDetail.settlement_rate}}</dd>
+
+                <dt class="col-sm-4">Paylater Payment Limit</dt>
+                <dd class="col-sm-8">{{businessDetail.paylater_payment_limit}}</dd>
+
+                <dt class="col-sm-4">Other Payment Limit</dt>
+                <dd class="col-sm-8">{{businessDetail.other_payment_limit}}</dd>
+
+                <dt class="col-sm-4">Category Name</dt>
+                <dd class="col-sm-8">{{businessDetail.category_english}} ({{businessDetail.category_hindi}} in Hindi)</dd>
+
+                <dt class="col-sm-4">Settlement Type</dt>
+                <dd class="col-sm-8">{{businessDetail.settlement_type}}</dd>
+
+                <dt class="col-sm-4">Wallet Amount</dt>
+                <dd class="col-sm-8">{{businessDetail.wallet}}</dd>
+
+                <dt class="col-sm-4">Credit Score</dt>
+                <dd class="col-sm-8">{{businessDetail.credit}}</dd>
+
+                <dt class="col-sm-4">Agent Code</dt>
+                <dd class="col-sm-8" *ngIf="!businessDetail.agent_code">Not Available</dd>
+                <dd class="col-sm-8" *ngIf="businessDetail.agent_code">{{businessDetail.agent_code}}</dd>
+
+                <dt class="col-sm-4">QR</dt>
+                <dd class="col-sm-8"><img class="d-block w-70" src="{{businessDetail.qr}}" alt="qrimage" height="100px" width="100px"></dd>
+
+                <dt class="col-sm-4">Kyc</dt>
+                <dd class="col-sm-8" *ngIf="businessDetail.kyc_status == 0">Not Submitted</dd>
+                <dd class="col-sm-8" *ngIf="businessDetail.kyc_status == 1">Approved</dd>
+                <dd class="col-sm-8" *ngIf="businessDetail.kyc_status == 2">Pending</dd>
+                <dd class="col-sm-8" *ngIf="businessDetail.kyc_status == 3">Rejected</dd>
+                <dd class="col-sm-8" *ngIf="businessDetail.kyc_status == 4">Blocked</dd>
+
+                <dt class="col-sm-4">Listed</dt>
+                <dd class="col-sm-8" *ngIf="businessDetail.listed == 0">Not Visible to User's</dd>
+                <dd class="col-sm-8" *ngIf="businessDetail.listed == 1">Visible to User's</dd>
+
+                <dt class="col-sm-4">Stage</dt>
+                <dd class="col-sm-8">{{businessDetail.stage}}</dd>
+
+                <dt class="col-sm-4">Blocked</dt>
+                <dd class="col-sm-8" *ngIf="businessDetail.blocked == 0">Unblock</dd>
+                <dd class="col-sm-8" *ngIf="businessDetail.blocked == 1">Blocked</dd>
+
+
+            </dl>
+        </app-card>
+    </div>
+</div>

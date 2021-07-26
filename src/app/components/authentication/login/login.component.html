@@ -1,0 +1,55 @@
+<div class="auth-wrapper">
+    <div class="auth-content text-center">
+        <img src="../../../../assets/images/auth/auth-logo.png" alt="" class="img-fluid mb-4">
+        <div class="card borderless">
+            <div class="row align-items-center text-center">
+                <div class="col-md-12">
+                    <form [formGroup]="signin" (ngSubmit)="adminLogIn()">
+                        <div class="card-body">
+                            <h4 class="mb-3 f-w-400">Signin</h4>
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Email address" name="email" required formControlName="email">
+                            </div>
+                            <div *ngIf="log.email.invalid && log.email.touched">
+                                <div *ngIf="log.email.errors.required">
+                                    Email is required.
+                                </div>
+                                <div *ngIf="log.email.errors.email">
+                                    Email is invalid.
+                                </div>
+                            </div>
+                            <div class="input-group mb-4">
+                                <input type="password" class="form-control" name="password" placeholder="Password" required formControlName="password">
+                            </div>
+                            <div *ngIf="log.password.invalid && log.password.touched">
+                                <div *ngIf="log.password.errors.required">
+                                    Password is required.
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-block btn-primary mb-4" [disabled]="!signin.valid">Signin</button>
+                            <!-- <p class="mb-2 text-muted ">Forgot password? <a [routerLink]="[ '/auth/reset-password'] " class="f-w-400 ">Reset</a></p> -->
+                            <div class="m-sm-4" *ngIf="SuccessAlert">
+
+                                <div class="alert alert-success" role="alert">
+                                    <h3 class="alert-heading"></h3>
+                                    <hr><br>
+                                    <p> {{message}}</p>
+                                </div>
+                            </div>
+
+                            <div class="m-sm-4" *ngIf="ErrorAlert">
+
+                                <div class="alert alert-danger" role="alert">
+                                    <h3 class="alert-heading"></h3>
+                                    <hr><br>
+                                    <p> {{message}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

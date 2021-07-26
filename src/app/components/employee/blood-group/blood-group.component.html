@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Add Blood Group" (options)="false">
+            <div class="row">
+                <div class="col-md-6">
+                    <form [formGroup]="bloodGroupForm" (ngSubmit)="saveBloodGroup()" action="javascript:">
+                        <div class="form-group">
+                            <label for="name">Blood Group</label>
+                            <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Enter Blood Group">
+                            <div *ngIf="f.name.touched && f.name.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.name.errors && f.name.errors.required">Blood Group is required.</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" [disabled]="!bloodGroupForm.valid">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </app-card>
+    </div>
+    <div class="col-xl-12">
+        <app-card cardTitle="Blood Group List" blockClass="table-border-style">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="data">
+                    </div>
+                </div>
+                <div class="col-lg-4 select-box-bg">
+                    Blood Group per Page:
+                    <select (change)="handlePageSizeChange($event)" class="select-box-tophead">
+                        <option *ngFor="let size of pageSizes" [ngValue]="size">
+                            {{ size }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Blood Group</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let bloodGroup of bloodGroupList">
+                            <td>1</td>
+                            <td>{{bloodGroup.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls> -->
+                <!-- <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls> -->
+
+            </div>
+        </app-card>
+    </div>
+</div>
+
+
+
+
+<!-- *ngFor="let bloodGroup of bloodGroupList | filter:data | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i=index" [class.active]="i==currentIndex" (click)="setActiveBloodGroup(bloodGroup, i)" -->

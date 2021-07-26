@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Employee List" blockClass="table-border-style">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let emp of employeeList">
+                            <td>1</td>
+                            <td>{{emp.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </app-card>
+    </div>
+
+</div>

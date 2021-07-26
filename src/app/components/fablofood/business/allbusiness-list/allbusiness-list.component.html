@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="All Business List" blockClass="table-border-style">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Business Name</th>
+                            <th>Contact No.</th>
+                            <th>City Name</th>
+                            <th>Business Type Name</th>
+                            <th>Settlement Rate</th>
+                            <th>Paylater Payment Limit</th>
+                            <th>Other Payment Limit</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let business of businessList">
+                            <td>1</td>
+                            <td>{{business.business_name}}</td>
+                            <td>{{business.phone}}</td>
+                            <td>{{business.city_name}}</td>
+                            <td>{{business.business_type_name}}</td>
+                            <td>{{business.settlement_rate}}</td>
+                            <td>{{business.paylater_payment_limit}}</td>
+                            <td>{{business.other_payment_limit}}</td>
+                            <td>
+                                <a routerLink="/Fablo-Food/BusinessDetails/{{business._id}}"><button type="button" class="btn btn-outline-info"><i class="feather icon-info"></i> Info</button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </app-card>
+    </div>
+
+</div>

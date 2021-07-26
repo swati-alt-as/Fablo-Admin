@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Add Department" (options)="false">
+            <div class="row">
+                <div class="col-md-6">
+                    <form [formGroup]="departmentForm" (ngSubmit)="saveDepartment()" action="javascript:">
+                        <div class="form-group">
+                            <label for="name">Department</label>
+                            <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Enter Department">
+                            <div *ngIf="f.name.touched && f.name.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.name.errors && f.name.errors.required">Department Name is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="code">Department Code</label>
+                            <input type="text" class="form-control" id="code" name="code" formControlName="code" placeholder="Enter Department Code">
+                            <div *ngIf="f.code.touched && f.code.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.code.errors && f.code.errors.required">Department Code is required.</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" [disabled]="!departmentForm.valid">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </app-card>
+    </div>
+    <div class="col-xl-12">
+        <app-card cardTitle="Department List" blockClass="table-border-style">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Department</th>
+                            <th>Department Code</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let dept of departmentList">
+                            <td>1</td>
+                            <td>{{dept.name}}</td>
+                            <td>{{dept.code}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </app-card>
+    </div>
+</div>
