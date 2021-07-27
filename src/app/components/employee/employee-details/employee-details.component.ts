@@ -26,10 +26,8 @@ export class EmployeeDetailsComponent implements OnInit {
   constructor(private employee: EmployeeService, private router: Router, private swal: SwalService, private toastr: ToastrserviceService) { }
 
   ngOnInit(): void {
-
     // this.spinnerService.show();
     this.employee.employeeList().subscribe((result) => {
-      console.log(result)
       // this.spinnerService.hide();
       if (!(result["items"].length === 0)) {
         this.employeeList = result["items"];

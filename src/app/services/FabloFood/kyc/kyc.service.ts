@@ -8,10 +8,10 @@ import { data } from 'jquery';
 @Injectable({
   providedIn: 'root'
 })
-export class BusinessService {
+export class KycService {
 
-  rooturl = "http://192.168.1.26:3001/";
-  // rooturl = "https://fablo-restaurant-partner-98ykz.ondigitalocean.app/";
+  rooturl = "http://192.168.1.26:3001/business/kyc/";
+  // rooturl = "https://fablo-restaurant-partner-98ykz.ondigitalocean.app/business/kyc/";
   isLoggedIn: boolean = false;  
   public redirectUrl: string;
 
@@ -31,8 +31,9 @@ export class BusinessService {
     return throwError(errorMessage);
   }
 
-  allbusinessList() {
-    return this.http.get(this.rooturl + "business/all")
+
+  kycDetails(data :any) {
+    return this.http.get(this.rooturl + data)
       .pipe(
         retry(1),
         catchError((err) => {
@@ -41,8 +42,8 @@ export class BusinessService {
       )
   }
 
-  businessDetails(data :any) {
-    return this.http.get(this.rooturl + "business/details/"+ data)
+  kycReject(data :any) {
+    return this.http.get(this.rooturl + data + "/reject")
       .pipe(
         retry(1),
         catchError((err) => {
@@ -51,8 +52,8 @@ export class BusinessService {
       )
   }
 
-  storesDetails(data :any) {
-    return this.http.get(this.rooturl + "store/stores/"+ data)
+  kycApprove(data :any) {
+    return this.http.get(this.rooturl + data + "/approve")
       .pipe(
         retry(1),
         catchError((err) => {
@@ -61,4 +62,23 @@ export class BusinessService {
       )
   }
 
+  kycBlock(data :any) {
+    return this.http.get(this.rooturl + data + "/block")
+      .pipe(
+        retry(1),
+        catchError((err) => {
+          return throwError(err);    //Rethrow it back to component
+        })
+      )
+  }
+
+  kycDocuments(data :any) {
+    return this.http.get(this.rooturl + data + "/documents")
+      .pipe(
+        retry(1),
+        catchError((err) => {
+          return throwError(err);    //Rethrow it back to component
+        })
+      )
+  }
 }

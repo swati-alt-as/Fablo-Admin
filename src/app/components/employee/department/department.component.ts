@@ -39,7 +39,6 @@ export class DepartmentComponent implements OnInit {
 
     // this.spinnerService.show();
     this.employee.departmentList().subscribe((result) => {
-      console.log(result)
       // this.spinnerService.hide();
       if (!(result["items"].length === 0)) {
         this.departmentList = result["items"];
@@ -79,9 +78,6 @@ export class DepartmentComponent implements OnInit {
     },
       (error: HttpErrorResponse) => {
         this.toastr.showError(error.error.message, error.error.status)
-        setTimeout(() => {
-          window.location.reload();
-        }, 5000);
       })
 
   }

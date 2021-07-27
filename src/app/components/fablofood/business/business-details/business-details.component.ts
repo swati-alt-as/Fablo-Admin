@@ -17,6 +17,7 @@ export class BusinessDetailsComponent implements OnInit {
   result: any = {};
 
   businessDetail: any = {};
+  storesDetail: any = {};
   page = 1;
   count = 0;
   pageSize = 10;
@@ -29,11 +30,19 @@ export class BusinessDetailsComponent implements OnInit {
     let businessId = this.router.snapshot.params.businessid;
     // this.spinnerService.show();
     this.business.businessDetails(businessId).subscribe((result) => {
-      console.log(result)
       // this.spinnerService.hide();
       if (!(result["items"].length === 0)) {
         this.businessDetail = result["items"];
         this.count = result["items"].length;
+      }
+    })
+
+    // this.spinnerService.show();
+    this.business.storesDetails(businessId).subscribe((response) => {
+      // this.spinnerService.hide();
+      if (!(response["items"].length === 0)) {
+        this.storesDetail = response["items"];
+        this.count = response["items"].length;
       }
     })
   }

@@ -30,7 +30,6 @@ export class AllbusinessListComponent implements OnInit {
 
     // this.spinnerService.show();
     this.business.allbusinessList().subscribe((result) => {
-      console.log(result)
       // this.spinnerService.hide();
       if (!(result["items"].length === 0)) {
         this.businessList = result["items"];

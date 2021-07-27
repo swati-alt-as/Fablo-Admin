@@ -37,7 +37,6 @@ export class BloodGroupComponent implements OnInit {
 
     // this.spinnerService.show();
     this.employee.bloodGroupList().subscribe((result) => {
-      console.log(result)
       // this.spinnerService.hide();
       if (!(result["items"].length === 0)) {
         this.bloodGroupList = result["items"];
@@ -76,10 +75,6 @@ export class BloodGroupComponent implements OnInit {
     },
       (error: HttpErrorResponse) => {
         this.toastr.showError(error.error.message, error.error.status)
-        // this.router.navigate(['/Employee/BloodGroups'])
-        setTimeout(() => {
-          window.location.reload();
-        }, 5000);
       })
 
   }
@@ -97,44 +92,3 @@ export class BloodGroupComponent implements OnInit {
   }
 
 }
-
-
-// post response
-
-// {
-//   "status": true,
-//   "message": "bloodGroup Created Successfully",
-//   "error": "",
-//   "items": {
-//       "status": 1,
-//       "_id": "60f6ce38ad9663001194705b",
-//       "name": "O+",
-//       "createdAt": "2021-07-20T13:23:04.955Z",
-//       "updatedAt": "2021-07-20T13:23:04.955Z",
-//       "__v": 0
-//   }
-// }
-
-
-// list Response
-
-
-// {
-//   "status": true,
-//   "message": "WorkExperiences",
-//   "error": "",
-//   "items": [
-//       {
-//           "status": 1,
-//           "_id": "60f3e2e767a4952f4ca57ae3",
-//           "name": "less  then 1 yr"
-//       },
-//       {
-//           "status": 1,
-//           "_id": "60f6bae73b82ae0011454ae3",
-//           "name": "2",
-//           "createdAt": "2021-07-20T12:00:39.331Z",
-//           "updatedAt": "2021-07-20T12:00:39.331Z"
-//       }
-//   ]
-// }

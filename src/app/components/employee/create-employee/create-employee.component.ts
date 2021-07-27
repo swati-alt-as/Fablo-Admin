@@ -164,7 +164,6 @@ export class CreateEmployeeComponent implements OnInit {
       "employeeType": this.empTypeCode,
     };
     this.employee.createEmployeeID(empIDPostData).subscribe((resultData) => {
-      console.log(resultData)
       this.result = resultData;
       if (this.result["status"] == true) {
         localStorage.setItem("employee_code", this.result["items"]);
@@ -213,9 +212,9 @@ export class CreateEmployeeComponent implements OnInit {
             "account_number": this.createEmpForm.value["account_number"]
           }
         };
-        console.log(employeePostData)
+        // console.log(employeePostData)
         this.employee.register(employeePostData).subscribe((response) => {
-          console.log(response)
+          // console.log(response)
           this.res = response;
           if (this.res["status"] == true) {
             this.message = this.res["message"];
@@ -235,11 +234,7 @@ export class CreateEmployeeComponent implements OnInit {
           }
         },
           (error: HttpErrorResponse) => {
-        console.log(error)
-        this.toastr.showError(error, "Error!")
-            // setTimeout(() => {
-            //   window.location.reload();
-            // }, 5000);
+            this.toastr.showError(error, "Error!")
           })
       } else if (this.result["status"] == false) {
         this.message = this.result["message"];
@@ -252,11 +247,7 @@ export class CreateEmployeeComponent implements OnInit {
       }
     },
       (error: HttpErrorResponse) => {
-        console.log(error)
         this.toastr.showError(error, "Error!")
-        // setTimeout(() => {
-        //   window.location.reload();
-        // }, 5000);
       })
   }
 }

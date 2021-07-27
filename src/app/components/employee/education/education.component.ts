@@ -37,7 +37,6 @@ export class EducationComponent implements OnInit {
 
     // this.spinnerService.show();
     this.employee.educationList().subscribe((result) => {
-      console.log(result)
       // this.spinnerService.hide();
       if (!(result["items"].length === 0)) {
         this.educationList = result["items"];
@@ -76,9 +75,6 @@ export class EducationComponent implements OnInit {
     },
       (error: HttpErrorResponse) => {
         this.toastr.showError(error.error.message, error.error.status)
-        setTimeout(() => {
-          window.location.reload();
-        }, 5000);
       })
 
   }

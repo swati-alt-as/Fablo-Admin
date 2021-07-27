@@ -37,7 +37,6 @@ export class WorkExperienceComponent implements OnInit {
 
     // this.spinnerService.show();
     this.employee.workExperienceList().subscribe((result) => {
-      console.log(result)
       // this.spinnerService.hide();
       if (!(result["items"].length === 0)) {
         this.workExpList = result["items"];
@@ -76,9 +75,6 @@ export class WorkExperienceComponent implements OnInit {
     },
       (error: HttpErrorResponse) => {
         this.toastr.showError(error.error.message, error.error.status)
-        setTimeout(() => {
-          window.location.reload();
-        }, 5000);
       })
 
   }

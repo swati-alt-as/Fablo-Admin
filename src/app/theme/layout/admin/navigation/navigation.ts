@@ -202,9 +202,27 @@ const NavigationItems = [
         children: [
           {
             id: 'document',
-            title: 'Document Approval',
+            title: 'Pending List',
             type: 'item',
-            url: '/Fablo-Food/dashboard',
+            url: '/Fablo-Food/Kyc-List/2',
+          },
+          {
+            id: 'document',
+            title: 'Approved List',
+            type: 'item',
+            url: '/Fablo-Food/Kyc-List/1',
+          },
+          {
+            id: 'document',
+            title: 'Rejected List',
+            type: 'item',
+            url: '/Fablo-Food/Kyc-List/3',
+          },
+          {
+            id: 'document',
+            title: 'Blocked List',
+            type: 'item',
+            url: '/Fablo-Food/Kyc-List/4',
           }
         ]
       },

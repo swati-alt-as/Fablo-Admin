@@ -1,7 +1,7 @@
 <div class="pcoded-inner-content">
     <div class="main-body">
         <div class="page-wrapper">
-           
+
             <div class="page-header">
                 <div class="page-header-title">
                     <h4>Business Details</h4>
@@ -12,19 +12,19 @@
 </div>
 
 <style>
-    .size-20{
+    .size-20 {
         font-size: 20px;
     }
-
-    .size-16{
+    
+    .size-16 {
         font-size: 16px;
     }
-
-    .m-0{
+    
+    .m-0 {
         margin: 0px;
     }
-
-    .border-e1{
+    
+    .border-e1 {
         border: 1px solid #e1e1e1;
     }
 </style>
@@ -33,29 +33,8 @@
 
 <div class="row">
 
-    <!-- <div class="col-md-12">
-        <app-card cardTitle="Horizontal Description" [options]="false">
-            <div *ngFor="let business of businessDetail">
-
-                <div class="card c-list">
-
-                    <div class="card-body">
-                        <div>
-                            <div class=" alert-outline">
-                                <div class="alert-message">
-                                    <h6><strong>Business Name</strong> - {{business.business_name}}</h6>
-                                    <h6><strong>Contact No.</strong> - {{business.phone}}</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </app-card>
-    </div> -->
-
     <div class="col-md-12">
-        
+
         <div class="row">
 
             <div class="col-lg-6">
@@ -67,7 +46,7 @@
 
                     <div class="card-block">
                         <div class="row">
-                            
+
                             <div class="col-sm-5">
                                 <ul class="list list-unstyled">
                                     <li class="size-16"><b>Business Name</b></li>
@@ -112,11 +91,21 @@
                                 </ul>
                             </div>
 
+                            <div class="col-sm-5">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16"><b>Category Name</b></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-7">
+                                <ul class="list list-unstyled">
+                                    <li class="size-16">: {{businessDetail.category_english}} ( {{businessDetail.category_hindi}} )</li>
+                                </ul>
+                            </div>
 
 
                         </div>
 
-                        
+
                     </div>
 
                     <!-- <div class="card-footer">
@@ -138,7 +127,7 @@
 
                     <div class="card-block">
                         <div class="row">
-                            
+
                             <div class="col-sm-5">
                                 <ul class="list list-unstyled">
                                     <li class="size-16"><b>Settlement Rate</b></li>
@@ -172,16 +161,6 @@
                                 </ul>
                             </div>
 
-                            <div class="col-sm-5">
-                                <ul class="list list-unstyled">
-                                    <li class="size-16"><b>Category Name</b></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-7">
-                                <ul class="list list-unstyled">
-                                    <li class="size-16">: {{businessDetail.category_english}} ({{businessDetail.category_hindi}} in Hindi)</li>
-                                </ul>
-                            </div>
 
                             <div class="col-sm-5">
                                 <ul class="list list-unstyled">
@@ -222,7 +201,7 @@
 
                         </div>
 
-                        
+
 
                     </div>
 
@@ -245,7 +224,7 @@
 
                     <div class="card-block">
                         <div class="row">
-                            
+
                             <div class="col-sm-5">
                                 <ul class="list list-unstyled">
                                     <li class="size-16"><b>Agent Code</b></li>
@@ -254,7 +233,8 @@
                             <div class="col-sm-7">
                                 <ul class="list list-unstyled ">
                                     <li class="size-16" *ngIf="!businessDetail.agent_code">: Not Available</li>
-                                    <li class="size-16" *ngIf="businessDetail.agent_code">: {{businessDetail.agent_code}}</li>
+                                    <li class="size-16" *ngIf="businessDetail.agent_code">: {{businessDetail.agent_code}}
+                                    </li>
                                 </ul>
                             </div>
 
@@ -265,7 +245,9 @@
                             </div>
                             <div class="col-sm-7">
                                 <ul class="list list-unstyled">
-                                    <li class="size-16"><img class="d-block w-70 border-e1" src="{{businessDetail.qr}}" alt="qrimage" height="100px" width="100px"></li>
+
+                                    <li class="size-16" *ngIf="businessDetail.qr"><img class="d-block w-70 border-e1" src="{{businessDetail.qr}}" alt="qrimage" height="100px" width="100px"></li>
+                                    <li class="size-16" *ngIf="!businessDetail.qr"><img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></li>
                                 </ul>
                             </div>
 
@@ -322,7 +304,7 @@
 
                         </div>
 
-                        
+
 
                     </div>
 
@@ -336,7 +318,7 @@
             </div>
 
 
-            <div class="col-lg-6 mt-4">
+            <div class="col-lg-6 mt-4" *ngFor="let stores of storesDetail">
 
                 <div class="card card-border-primary h-100">
                     <div class="card-header">
@@ -345,7 +327,7 @@
 
                     <div class="card-block">
                         <div class="row">
-                            
+
                             <div class="col-sm-5">
                                 <ul class="list list-unstyled">
                                     <li class="size-16"><b>Availability</b></li>
@@ -353,7 +335,8 @@
                             </div>
                             <div class="col-sm-7">
                                 <ul class="list list-unstyled ">
-                                    <li class="size-16">: {{businessDetail.availability}}</li>
+                                    <li class="size-16" *ngIf="stores.status == 0">: Not Available</li>
+                                    <li class="size-16" *ngIf="stores.status == 1">: Available</li>
                                 </ul>
                             </div>
 
@@ -364,18 +347,20 @@
                             </div>
                             <div class="col-sm-7">
                                 <ul class="list list-unstyled">
-                                    <li class="size-16">: {{businessDetail.status}}</li>
+                                    <li class="size-16" *ngIf="stores.status == 0">: Pending</li>
+                                    <li class="size-16" *ngIf="stores.status == 1">: Approve</li>
+                                    <li class="size-16" *ngIf="stores.status == 2">: Rejected</li>
                                 </ul>
                             </div>
 
                             <div class="col-sm-5">
                                 <ul class="list list-unstyled">
-                                    <li class="size-16"><b>Schema Version</b></li>
+                                    <li class="size-16"><b>Locality</b></li>
                                 </ul>
                             </div>
                             <div class="col-sm-7">
                                 <ul class="list list-unstyled">
-                                    <li class="size-16">: {{businessDetail.schema_version}}</li>
+                                    <li class="size-16">: {{stores.locality}}</li>
                                 </ul>
                             </div>
 
@@ -386,7 +371,7 @@
                             </div>
                             <div class="col-sm-7">
                                 <ul class="list list-unstyled">
-                                    <li class="size-16">: {{businessDetail.storeUsername}}</li>
+                                    <li class="size-16">: {{stores.storeUsername}}</li>
                                 </ul>
                             </div>
 
@@ -397,7 +382,7 @@
                             </div>
                             <div class="col-sm-7">
                                 <ul class="list list-unstyled">
-                                    <li class="size-16">: {{businessDetail.phone}}</li>
+                                    <li class="size-16">: {{stores.phone}}</li>
                                 </ul>
                             </div>
 
@@ -408,7 +393,7 @@
                             </div>
                             <div class="col-sm-7">
                                 <ul class="list list-unstyled">
-                                    <li class="size-16">: {{businessDetail.store_name}}</li>
+                                    <li class="size-16">: {{stores.store_name}}</li>
                                 </ul>
                             </div>
 
@@ -419,18 +404,18 @@
                             </div>
                             <div class="col-sm-7">
                                 <ul class="list list-unstyled">
-                                    <li class="size-16">: {{businessDetail.city_name}}</li>
+                                    <li class="size-16">: {{stores.city_name}}</li>
                                 </ul>
                             </div>
 
                             <div class="col-sm-5">
                                 <ul class="list list-unstyled">
-                                    <li class="size-16"><b>Category English</b></li>
+                                    <li class="size-16"><b>Category</b></li>
                                 </ul>
                             </div>
                             <div class="col-sm-7">
                                 <ul class="list list-unstyled">
-                                    <li class="size-16">: {{businessDetail.category_english}}</li>
+                                    <li class="size-16">: {{stores.category_english}}( {{stores.category_hindi}} )</li>
                                 </ul>
                             </div>
 
@@ -438,7 +423,7 @@
 
                         </div>
 
-                        
+
                     </div>
 
                     <!-- <div class="card-footer">
@@ -451,10 +436,10 @@
             </div>
 
 
-           
+
 
         </div>
-         
+
         <!-- <p class="mt-4"><b>Basic Details</b></p>
 
         <hr />
@@ -536,6 +521,6 @@
 
 
             </dl> -->
-      
+
     </div>
 </div>

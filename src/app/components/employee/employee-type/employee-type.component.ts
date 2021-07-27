@@ -39,7 +39,6 @@ export class EmployeeTypeComponent implements OnInit {
 
     // this.spinnerService.show();
     this.employee.employeeTypeList().subscribe((result) => {
-      console.log(result)
       // this.spinnerService.hide();
       if (!(result["items"].length === 0)) {
         this.empTypeList = result["items"];
@@ -79,9 +78,6 @@ export class EmployeeTypeComponent implements OnInit {
     },
       (error: HttpErrorResponse) => {
         this.toastr.showError(error.error.message, error.error.status)
-        setTimeout(() => {
-          window.location.reload();
-        }, 5000);
       })
 
   }

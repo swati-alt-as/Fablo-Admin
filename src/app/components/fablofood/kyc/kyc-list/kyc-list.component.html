@@ -1,0 +1,178 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Pending List" blockClass="table-border-style" *ngIf="this.kycStatus == 2">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Business Name</th>
+                            <th>Contact No.</th>
+                            <th>City Name</th>
+                            <th>Business Type Name</th>
+                            <th>Settlement Rate</th>
+                            <th>Paylater Payment Limit</th>
+                            <th>Other Payment Limit</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let business of kycList">
+                            <td>1</td>
+                            <td>{{business.business_name}}</td>
+                            <td>{{business.phone}}</td>
+                            <td>{{business.city_name}}</td>
+                            <td>{{business.business_type_name}}</td>
+                            <td>{{business.settlement_rate}} %</td>
+                            <td>{{business.paylater_payment_limit}} Rs.</td>
+                            <td>{{business.other_payment_limit}} Rs.</td>
+                            <td>
+                                <button class="btn btn-outline-primary" (click)="open(content, business._id)">View Document</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </app-card>
+    </div>
+
+    <div class="col-sm-12">
+        <app-card cardTitle="Approved List" blockClass="table-border-style" *ngIf="this.kycStatus == 1">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Business Name</th>
+                            <th>Contact No.</th>
+                            <th>City Name</th>
+                            <th>Business Type Name</th>
+                            <th>Settlement Rate</th>
+                            <th>Paylater Payment Limit</th>
+                            <th>Other Payment Limit</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let business of kycList">
+                            <td>1</td>
+                            <td>{{business.business_name}}</td>
+                            <td>{{business.phone}}</td>
+                            <td>{{business.city_name}}</td>
+                            <td>{{business.business_type_name}}</td>
+                            <td>{{business.settlement_rate}} %</td>
+                            <td>{{business.paylater_payment_limit}} Rs.</td>
+                            <td>{{business.other_payment_limit}} Rs.</td>
+                            <td>
+                                <button class="btn btn-outline-primary" (click)="open(content, business._id)">View Document</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </app-card>
+    </div>
+
+    <div class="col-sm-12">
+        <app-card cardTitle="Rejected List" blockClass="table-border-style" *ngIf="this.kycStatus == 3">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Business Name</th>
+                            <th>Contact No.</th>
+                            <th>City Name</th>
+                            <th>Business Type Name</th>
+                            <th>Settlement Rate</th>
+                            <th>Paylater Payment Limit</th>
+                            <th>Other Payment Limit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let business of kycList">
+                            <td>1</td>
+                            <td>{{business.business_name}}</td>
+                            <td>{{business.phone}}</td>
+                            <td>{{business.city_name}}</td>
+                            <td>{{business.business_type_name}}</td>
+                            <td>{{business.settlement_rate}} %</td>
+                            <td>{{business.paylater_payment_limit}} Rs.</td>
+                            <td>{{business.other_payment_limit}} Rs.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </app-card>
+    </div>
+
+    <div class="col-sm-12">
+        <app-card cardTitle="Blocked List" blockClass="table-border-style" *ngIf="this.kycStatus == 4">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Business Name</th>
+                            <th>Contact No.</th>
+                            <th>City Name</th>
+                            <th>Business Type Name</th>
+                            <th>Settlement Rate</th>
+                            <th>Paylater Payment Limit</th>
+                            <th>Other Payment Limit</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let business of kycList">
+                            <td>1</td>
+                            <td>{{business.business_name}}</td>
+                            <td>{{business.phone}}</td>
+                            <td>{{business.city_name}}</td>
+                            <td>{{business.business_type_name}}</td>
+                            <td>{{business.settlement_rate}} %</td>
+                            <td>{{business.paylater_payment_limit}} Rs.</td>
+                            <td>{{business.other_payment_limit}} Rs.</td>
+                            <td>
+                                <button class="btn btn-outline-primary" (click)="open(content, business._id)">View Document</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </app-card>
+    </div>
+
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Kyc Documents</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <p *ngIf="documents.aadharcard.front">AdharCard Front Image : <img class="d-block w-70 border-e1" src="{{documents.aadharcard.front}}" alt="qrimage" height="100px" width="100px"></p>
+        <p *ngIf="!documents.aadharcard.front">AdharCard Front Image : <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p>
+        <p *ngIf="documents.aadharcard.back">AdharCard Back Image : <img class="d-block w-70 border-e1" src="{{documents.aadharcard.back}}" alt="qrimage" height="100px" width="100px"></p>
+        <p *ngIf="!documents.aadharcard.back">AdharCard Back Image : <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p>
+        <p *ngIf="documents.restorant_picture.in">Restaurant Picture In :<img class="d-block w-70 border-e1" src="{{documents.restorant_picture.in}}" alt="qrimage" height="100px" width="100px"></p>
+        <p *ngIf="!documents.restorant_picture.in">Restaurant Picture In :<img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p>
+        <p *ngIf="documents.restorant_picture.out">Restaurant Picture Out :<img class="d-block w-70 border-e1" src="{{documents.restorant_picture.out}}" alt="qrimage" height="100px" width="100px"></p>
+        <p *ngIf="!documents.restorant_picture.out">Restaurant Picture Out :<img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p>
+        <p>Pancard : {{documents.pancard}}</p>
+        <p>Cancle Check : {{documents.cancel_check}}</p>
+        <p>Fassai : {{documents.fssai}}</p>
+        <p>GST-IN Number : {{documents.gstinno}}</p>
+        <p>Gumasta : {{documents.gumasta}}</p>
+        <p>Turn Over : {{documents.turnOver}}</p>
+
+        <button type="button" class="btn btn-outline-success" *ngIf="(this.kycStatus == 2) || (this.kycStatus == 4)" (click)="businessKycApprove(documents.business_id)"> Approve</button>
+        <button type="button" class="btn btn-outline-warning" *ngIf="(this.kycStatus == 2) || (this.kycStatus == 4) || (this.kycStatus == 1)" (click)="businesskycReject(documents.business_id)"> Reject</button>
+        <button type="button" class="btn btn-outline-danger" *ngIf="(this.kycStatus == 2) || (this.kycStatus == 1)" (click)="businesskycBlock(documents.business_id)"> Block</button>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c( 'Save click')">Close</button>
+    </div>
+</ng-template>

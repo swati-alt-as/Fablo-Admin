@@ -32,14 +32,15 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
 import { ToastrModule } from 'ngx-toastr';
-import { Router, RouterModule } from '@angular/router'; 
+import { Router, RouterModule } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { GlobalHttpInterceptorService } from './services/global/global-http-interceptor.service';
 import { GlobalErrorHandlerService } from './services/global/global-error-handler.service';
 import { BusinessDetailsComponent } from './components/fablofood/business/business-details/business-details.component';
-import { AllbusinessListComponent} from './components/fablofood/business/allbusiness-list/allbusiness-list.component';
+import { AllbusinessListComponent } from './components/fablofood/business/allbusiness-list/allbusiness-list.component';
+import { KycListComponent } from './components/fablofood/kyc/kyc-list/kyc-list.component';
 
 @NgModule({
   declarations: [
@@ -58,8 +59,9 @@ import { AllbusinessListComponent} from './components/fablofood/business/allbusi
     ConfigurationComponent,
     ToggleFullScreenDirective,
     BusinessDetailsComponent,
-    AllbusinessListComponent
-    
+    AllbusinessListComponent,
+    KycListComponent
+
   ],
   imports: [
     BrowserModule,
@@ -90,9 +92,11 @@ import { AllbusinessListComponent} from './components/fablofood/business/allbusi
     NavigationItem],
   bootstrap: [AppComponent]
 })
-export class AppModule {constructor(router: Router) {
-  // Use a custom replacer to display function names in the route configs
-  // const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
+export class AppModule {
+    constructor(router: Router) {
+      // Use a custom replacer to display function names in the route configs
+      // const replacer = (key, value) => (typeof value === 'function') ? value.name : value;
 
-  // console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
-} }
+      // console.log('Routes: ', JSON.stringify(router.config, replacer, 2));
+    }
+}
