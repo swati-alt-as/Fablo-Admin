@@ -1,0 +1,46 @@
+.popup-card{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #eae8e8;
+    border-radius: 10px;
+    padding-top: 13px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.popup-img-badge{
+    width: 120px;
+    height: 120px;
+    background-color: #ECEDEC;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px, rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+}
+
+.popup-img-badge img{
+    border-radius: 30px;
+}
+
+.popup-card p{
+    font-size: 16px;
+    color: #333333;
+    font-weight: 600;
+}
+
+.popup-info p{
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #666666;
+}
+
+.popup-info h4{
+    font-size: 20px;
+    color: #333333;
+}

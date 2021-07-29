@@ -1,3 +1,7 @@
+<style>
+
+    
+</style>
 <div class="row">
     <div class="col-sm-12">
         <app-card cardTitle="Pending List" blockClass="table-border-style" *ngIf="this.kycStatus == 2">
@@ -153,24 +157,193 @@
       </button>
     </div>
     <div class="modal-body">
-        <p *ngIf="documents.aadharcard.front">AdharCard Front Image : <img class="d-block w-70 border-e1" src="{{documents.aadharcard.front}}" alt="qrimage" height="100px" width="100px"></p>
+
+        <div class="row d-flex justify-content-around">
+
+            <div class="col-6 text-center mt-2">
+                 <!-- Addhar Card Front -->
+                    <div class="popup-card text-center" *ngIf="documents.aadharcard.front">
+
+                        <div class="popup-img-badge" >
+                        
+                                <img class="d-block w-70 border-e1" src="{{documents.aadharcard.front}}" alt="qrimage" height="120px" width="120px">
+                            
+                        </div>
+
+                        <p>Adhar Card Front</p>
+
+                    </div>
+                    <div class="popup-card text-center" *ngIf="!documents.aadharcard.front">
+
+                        <div class="popup-img-badge" >
+                        
+                                <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
+                            
+                        </div>
+
+                        <p>Adhar Card Front</p>
+
+                    </div>
+                    <!-- --/ Addhar Card Front-->
+            </div>
+
+            <div class="col-6 text-center mt-2">
+
+                 <!-- Addhar Card Back-->
+                    <div class="popup-card text-center" *ngIf="documents.aadharcard.back">
+
+                        <div class="popup-img-badge" >
+                        
+                                <img class="d-block w-70 border-e1" src="{{documents.aadharcard.back}}" alt="qrimage" height="120px" width="120px">
+                            
+                        </div>
+
+                        <p>Adhar Card Back</p>
+
+                    </div>
+                    <div class="popup-card text-center" *ngIf="!documents.aadharcard.back">
+
+                        <div class="popup-img-badge" >
+                        
+                                <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
+                            
+                        </div>
+
+                        <p>Adhar Card Back</p>
+
+                    </div>
+                    <!-- --/ Addhar Card bank-->
+
+            </div>
+
+
+            <div class="col-6 text-center mt-4">
+
+                <!-- Addhar Card Back-->
+                   <div class="popup-card text-center" *ngIf="documents.restorant_picture.in">
+
+                       <div class="popup-img-badge" >
+                       
+                               <img class="d-block w-70 border-e1" src="{{documents.restorant_picture.in}}" alt="qrimage" height="120px" width="120px">
+                           
+                       </div>
+
+                       <p>Restaurant Picture In</p>
+
+                   </div>
+                   <div class="popup-card text-center" *ngIf="!documents.restorant_picture.in">
+
+                       <div class="popup-img-badge" >
+                       
+                               <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
+                           
+                       </div>
+
+                       <p>Restaurant Picture In</p>
+
+                   </div>
+                   <!-- --/ Addhar Card bank-->
+
+           </div>
+
+
+           <div class="col-6 text-center mt-4">
+
+            <!-- Addhar Card Back-->
+               <div class="popup-card text-center" *ngIf="documents.restorant_picture.out">
+
+                   <div class="popup-img-badge" >
+                   
+                           <img class="d-block w-70 border-e1" src="{{documents.restorant_picture.out}}" alt="qrimage" height="120px" width="120px">
+                       
+                   </div>
+
+                   <p>Restaurant Picture Out</p>
+
+               </div>
+               <div class="popup-card text-center" *ngIf="!documents.restorant_picture.out">
+
+                   <div class="popup-img-badge" >
+                   
+                           <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
+                       
+                   </div>
+
+                   <p>Restaurant Picture Out</p>
+
+               </div>
+               <!-- --/ Addhar Card bank-->
+
+       </div>
+
+
+        </div>
+
+       
+
+        
+
+
+        <!-- <p *ngIf="documents.aadharcard.front">AdharCard Front Image : <img class="d-block w-70 border-e1" src="{{documents.aadharcard.front}}" alt="qrimage" height="100px" width="100px"></p>
         <p *ngIf="!documents.aadharcard.front">AdharCard Front Image : <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p>
         <p *ngIf="documents.aadharcard.back">AdharCard Back Image : <img class="d-block w-70 border-e1" src="{{documents.aadharcard.back}}" alt="qrimage" height="100px" width="100px"></p>
         <p *ngIf="!documents.aadharcard.back">AdharCard Back Image : <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p>
         <p *ngIf="documents.restorant_picture.in">Restaurant Picture In :<img class="d-block w-70 border-e1" src="{{documents.restorant_picture.in}}" alt="qrimage" height="100px" width="100px"></p>
         <p *ngIf="!documents.restorant_picture.in">Restaurant Picture In :<img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p>
         <p *ngIf="documents.restorant_picture.out">Restaurant Picture Out :<img class="d-block w-70 border-e1" src="{{documents.restorant_picture.out}}" alt="qrimage" height="100px" width="100px"></p>
-        <p *ngIf="!documents.restorant_picture.out">Restaurant Picture Out :<img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p>
-        <p>Pancard : {{documents.pancard}}</p>
+        <p *ngIf="!documents.restorant_picture.out">Restaurant Picture Out :<img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p> -->
+        
+        <div class="popup-info px-3 mt-3">
+            <div class="row d-flex justify-content-around">
+                
+                <div class="col-6 mt-4">
+                    <p>Pancard</p>
+                    <h4>{{documents.pancard}}</h4>
+                </div>
+                
+                <div class="col-6 mt-4">
+                    <p>Cancel Check</p>
+                    <h4>{{documents.cancel_check}} 12 CHeck</h4>
+                </div>
+
+                <div class="col-6 mt-4">
+                    <p>Fassai</p>
+                    <h4>{{documents.fssai}} Submitted </h4>
+                </div>
+
+                <div class="col-6 mt-4">
+                    <p>GST-IN Number</p>
+                    <h4>{{documents.gstinno}} 78DESE47142</h4>
+                </div>
+
+                <div class="col-6 mt-4">
+                    <p>Gumasta</p>
+                    <h4>{{documents.gumasta}} 14745344</h4>
+                </div>
+
+                <div class="col-6 mt-4">
+                    <p>Turn Over</p>
+                    <h4>{{documents.turnOver}}</h4>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <p>Pancard : {{documents.pancard}}</p>
         <p>Cancle Check : {{documents.cancel_check}}</p>
         <p>Fassai : {{documents.fssai}}</p>
         <p>GST-IN Number : {{documents.gstinno}}</p>
         <p>Gumasta : {{documents.gumasta}}</p>
-        <p>Turn Over : {{documents.turnOver}}</p>
+        <p>Turn Over : {{documents.turnOver}}</p> -->
 
-        <button type="button" class="btn btn-outline-success" *ngIf="(this.kycStatus == 2) || (this.kycStatus == 4)" (click)="businessKycApprove(documents.business_id)"> Approve</button>
-        <button type="button" class="btn btn-outline-warning" *ngIf="(this.kycStatus == 2) || (this.kycStatus == 4) || (this.kycStatus == 1)" (click)="businesskycReject(documents.business_id)"> Reject</button>
-        <button type="button" class="btn btn-outline-danger" *ngIf="(this.kycStatus == 2) || (this.kycStatus == 1)" (click)="businesskycBlock(documents.business_id)"> Block</button>
+        <div class="popup-btn-box px-3 mt-5">
+            <button type="button" class="btn btn-outline-success" *ngIf="(this.kycStatus == 2) || (this.kycStatus == 4)" (click)="businessKycApprove(documents.business_id)"> Approve</button>
+            <button type="button" class="btn btn-outline-warning ml-3" *ngIf="(this.kycStatus == 2) || (this.kycStatus == 4) || (this.kycStatus == 1)" (click)="businesskycReject(documents.business_id)"> Reject</button>
+            <button type="button" class="btn btn-outline-danger ml-3" *ngIf="(this.kycStatus == 2) || (this.kycStatus == 1)" (click)="businesskycBlock(documents.business_id)"> Block</button>
+
+        </div>
+
+       
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="c( 'Save click')">Close</button>

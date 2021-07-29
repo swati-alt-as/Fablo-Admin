@@ -10,8 +10,8 @@ import { data } from 'jquery';
 })
 export class KycService {
 
-  rooturl = "http://192.168.1.26:3001/business/kyc/";
-  // rooturl = "https://fablo-restaurant-partner-98ykz.ondigitalocean.app/business/kyc/";
+  // rooturl = "http://192.168.1.26:3001/business/kyc/";
+  rooturl = "https://fablo-restaurant-partner-98ykz.ondigitalocean.app/business/kyc/";
   isLoggedIn: boolean = false;  
   public redirectUrl: string;
 
