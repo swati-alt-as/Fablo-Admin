@@ -7,12 +7,44 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+                            <th>Employee Id</th>
+                            <th>Contact</th>
+                            <th>Emergency Contact</th>
+                            <th>Blood Group</th>
+                            <th>Email</th>
+                            <th>dob</th>
+                            <th>current address</th>
+                            <th>postal address</th>
+                            <th>employee type</th>
+                            <th>education</th>
+                            <th>designation</th>
+                            <th>department</th>
+                            <th>work experience</th>
+                            <th>bank name</th>
+                            <th>bankb ifsc</th>
+                            <th>account number</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let emp of employeeList">
                             <td>1</td>
                             <td>{{emp.name}}</td>
+                            <td>{{emp.employee_code}}</td>
+                            <td>{{emp.contact}}</td>
+                            <td>{{emp.emergency_contact}}</td>
+                            <td>{{emp.blood_group.name}}</td>
+                            <td>{{emp.email}}</td>
+                            <td>{{emp.dob}}</td>
+                            <td>{{emp.address.current}}</td>
+                            <td>{{emp.address.postal}}</td>
+                            <td>{{emp.employee_type.name}}</td>
+                            <td>{{emp.education.name}}</td>
+                            <td>{{emp.designation.name}}</td>
+                            <td>{{emp.department.name}}</td>
+                            <td>{{emp.work_experience.name}}</td>
+                            <td>{{emp.account_details.bank_name}}</td>
+                            <td>{{emp.account_details.bank_ifsc}}</td>
+                            <td>{{emp.account_details.account_number}}</td>
                         </tr>
                     </tbody>
                 </table>
