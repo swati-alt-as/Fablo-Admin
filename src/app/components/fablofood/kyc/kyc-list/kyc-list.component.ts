@@ -29,9 +29,9 @@ export class KycListComponent implements OnInit {
   blockedList: any = {};
   page = 1;
   count = 0;
-  pageSize = 10;
+  pageSize = 5;
   pageSizes = [5, 10, 15];
-  data: String;
+  data: string;
   kycStatus: number;
   businessId: string;
 
@@ -162,6 +162,18 @@ export class KycListComponent implements OnInit {
       (error: HttpErrorResponse) => {
         this.toastr.showError(error, "Error!")
       })
+  }
+
+  
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.ngOnInit();
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.ngOnInit();
   }
 
 }

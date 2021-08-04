@@ -141,6 +141,13 @@
                                 <div *ngIf="f.workExp.errors && f.workExp.errors.required">Work Exprience is required.</div>
                             </div>
                         </div>
+                        <div class="m-sm-4" *ngIf="employeeId">
+
+                            <div class="alert alert-success" role="alert">
+                                <h3 class="alert-heading">Employee Id </h3>
+                                <p> {{employeeId}}</p>
+                            </div>
+                        </div>
                         <button type="submit" class="btn btn-primary" [disabled]="!createEmpForm.valid">Submit</button>
                     </form>
                 </div>

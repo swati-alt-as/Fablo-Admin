@@ -77,6 +77,7 @@ export class CreateEmployeeComponent implements OnInit {
   data: String;
   departmentCode: string;
   empTypeCode: string;
+  employeeId: string;
   bloodGroupList: any = {};
   departmentList: any = {};
   designationList: any = {};
@@ -166,6 +167,8 @@ export class CreateEmployeeComponent implements OnInit {
     this.employee.createEmployeeID(empIDPostData).subscribe((resultData) => {
       this.result = resultData;
       if (this.result["status"] == true) {
+        this.employeeId =  this.result["items"];
+        console.log(this.employeeId)
         localStorage.setItem("employee_code", this.result["items"]);
         let employeePostData: createEmpData = {
           "name": this.createEmpForm.value["name"],
@@ -234,7 +237,7 @@ export class CreateEmployeeComponent implements OnInit {
           }
         },
           (error: HttpErrorResponse) => {
-            this.toastr.showError(error, "Error!")
+            this.toastr.showError(error.error.message, "Error!")
           })
       } else if (this.result["status"] == false) {
         this.message = this.result["message"];
@@ -247,7 +250,7 @@ export class CreateEmployeeComponent implements OnInit {
       }
     },
       (error: HttpErrorResponse) => {
-        this.toastr.showError(error, "Error!")
+        this.toastr.showError(error.error.message, "Error!")
       })
   }
 }

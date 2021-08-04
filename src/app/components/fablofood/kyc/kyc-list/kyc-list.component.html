@@ -1,10 +1,25 @@
 <style>
 
-    
 </style>
 <div class="row">
     <div class="col-sm-12">
         <app-card cardTitle="Pending List" blockClass="table-border-style" *ngIf="this.kycStatus == 2">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="data">
+                    </div>
+                </div>
+                <div class="col-lg-4 select-box-bg">
+                    Pending per Page:
+                    <select (change)="handlePageSizeChange($event)" class="select-box-tophead">
+                        <option *ngFor="let size of pageSizes" [ngValue]="size">
+                            {{ size }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -21,8 +36,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let business of kycList">
-                            <td>1</td>
+                        <tr *ngFor="let business of kycList | filter: data | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i=index">
+                            <td>{{i+1}}</td>
                             <td>{{business.business_name}}</td>
                             <td>{{business.phone}}</td>
                             <td>{{business.city_name}}</td>
@@ -36,12 +51,29 @@
                         </tr>
                     </tbody>
                 </table>
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls>
             </div>
         </app-card>
     </div>
 
     <div class="col-sm-12">
         <app-card cardTitle="Approved List" blockClass="table-border-style" *ngIf="this.kycStatus == 1">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="data">
+                    </div>
+                </div>
+                <div class="col-lg-4 select-box-bg">
+                    Approved per Page:
+                    <select (change)="handlePageSizeChange($event)" class="select-box-tophead">
+                        <option *ngFor="let size of pageSizes" [ngValue]="size">
+                            {{ size }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -58,8 +90,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let business of kycList">
-                            <td>1</td>
+                        <tr *ngFor="let business of kycList | filter: data | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i=index">
+                            <td>{{i+1}}</td>
                             <td>{{business.business_name}}</td>
                             <td>{{business.phone}}</td>
                             <td>{{business.city_name}}</td>
@@ -73,12 +105,29 @@
                         </tr>
                     </tbody>
                 </table>
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls>
             </div>
         </app-card>
     </div>
 
     <div class="col-sm-12">
         <app-card cardTitle="Rejected List" blockClass="table-border-style" *ngIf="this.kycStatus == 3">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="data">
+                    </div>
+                </div>
+                <div class="col-lg-4 select-box-bg">
+                    Rejected per Page:
+                    <select (change)="handlePageSizeChange($event)" class="select-box-tophead">
+                        <option *ngFor="let size of pageSizes" [ngValue]="size">
+                            {{ size }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -94,8 +143,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let business of kycList">
-                            <td>1</td>
+                        <tr *ngFor="let business of kycList | filter: data | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i=index">
+                            <td>{{i+1}}</td>
                             <td>{{business.business_name}}</td>
                             <td>{{business.phone}}</td>
                             <td>{{business.city_name}}</td>
@@ -106,12 +155,29 @@
                         </tr>
                     </tbody>
                 </table>
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls>
             </div>
         </app-card>
     </div>
 
     <div class="col-sm-12">
         <app-card cardTitle="Blocked List" blockClass="table-border-style" *ngIf="this.kycStatus == 4">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="data">
+                    </div>
+                </div>
+                <div class="col-lg-4 select-box-bg">
+                    Blocked per Page:
+                    <select (change)="handlePageSizeChange($event)" class="select-box-tophead">
+                        <option *ngFor="let size of pageSizes" [ngValue]="size">
+                            {{ size }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -128,8 +194,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let business of kycList">
-                            <td>1</td>
+                        <tr *ngFor="let business of kycList | filter: data | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i=index">
+                            <td>{{i+1}}</td>
                             <td>{{business.business_name}}</td>
                             <td>{{business.phone}}</td>
                             <td>{{business.city_name}}</td>
@@ -143,6 +209,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls>
             </div>
         </app-card>
     </div>
@@ -161,58 +228,90 @@
         <div class="row d-flex justify-content-around">
 
             <div class="col-6 text-center mt-2">
-                 <!-- Addhar Card Front -->
-                    <div class="popup-card text-center" *ngIf="documents.aadharcard.front">
+                <!-- Addhar Card Front -->
+                <div class="popup-card text-center" *ngIf="documents.aadharcard.front">
 
-                        <div class="popup-img-badge" >
-                        
-                                <img class="d-block w-70 border-e1" src="{{documents.aadharcard.front}}" alt="qrimage" height="120px" width="120px">
-                            
-                        </div>
+                    <div class="popup-img-badge">
 
-                        <p>Adhar Card Front</p>
+                        <img class="d-block w-70 border-e1" src="{{documents.aadharcard.front}}" alt="qrimage" height="120px" width="120px">
 
                     </div>
-                    <div class="popup-card text-center" *ngIf="!documents.aadharcard.front">
 
-                        <div class="popup-img-badge" >
-                        
-                                <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
-                            
-                        </div>
+                    <p>Adhar Card Front</p>
 
-                        <p>Adhar Card Front</p>
+                </div>
+                <div class="popup-card text-center" *ngIf="!documents.aadharcard.front">
+
+                    <div class="popup-img-badge">
+
+                        <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
 
                     </div>
-                    <!-- --/ Addhar Card Front-->
+
+                    <p>Adhar Card Front</p>
+
+                </div>
+                <!-- --/ Addhar Card Front-->
             </div>
 
             <div class="col-6 text-center mt-2">
 
-                 <!-- Addhar Card Back-->
-                    <div class="popup-card text-center" *ngIf="documents.aadharcard.back">
+                <!-- Addhar Card Back-->
+                <div class="popup-card text-center" *ngIf="documents.aadharcard.back">
 
-                        <div class="popup-img-badge" >
-                        
-                                <img class="d-block w-70 border-e1" src="{{documents.aadharcard.back}}" alt="qrimage" height="120px" width="120px">
-                            
-                        </div>
+                    <div class="popup-img-badge">
 
-                        <p>Adhar Card Back</p>
+                        <img class="d-block w-70 border-e1" src="{{documents.aadharcard.back}}" alt="qrimage" height="120px" width="120px">
 
                     </div>
-                    <div class="popup-card text-center" *ngIf="!documents.aadharcard.back">
 
-                        <div class="popup-img-badge" >
-                        
-                                <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
-                            
-                        </div>
+                    <p>Adhar Card Back</p>
 
-                        <p>Adhar Card Back</p>
+                </div>
+                <div class="popup-card text-center" *ngIf="!documents.aadharcard.back">
+
+                    <div class="popup-img-badge">
+
+                        <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
 
                     </div>
-                    <!-- --/ Addhar Card bank-->
+
+                    <p>Adhar Card Back</p>
+
+                </div>
+
+                <!-- --/ Addhar Card bank-->
+
+            </div>
+
+
+
+            <div class="col-6 text-center mt-4">
+
+                <!-- Addhar Card Back-->
+                <div class="popup-card text-center" *ngIf="documents.restorant_picture.in">
+
+                    <div class="popup-img-badge">
+
+                        <img class="d-block w-70 border-e1" src="{{documents.restorant_picture.in}}" alt="qrimage" height="120px" width="120px">
+
+                    </div>
+
+                    <p>Restaurant Picture In</p>
+
+                </div>
+                <div class="popup-card text-center" *ngIf="!documents.restorant_picture.in">
+
+                    <div class="popup-img-badge">
+
+                        <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
+
+                    </div>
+
+                    <p>Restaurant Picture In</p>
+
+                </div>
+                <!-- --/ Addhar Card bank-->
 
             </div>
 
@@ -220,69 +319,120 @@
             <div class="col-6 text-center mt-4">
 
                 <!-- Addhar Card Back-->
-                   <div class="popup-card text-center" *ngIf="documents.restorant_picture.in">
+                <div class="popup-card text-center" *ngIf="documents.restorant_picture.out">
 
-                       <div class="popup-img-badge" >
-                       
-                               <img class="d-block w-70 border-e1" src="{{documents.restorant_picture.in}}" alt="qrimage" height="120px" width="120px">
-                           
-                       </div>
+                    <div class="popup-img-badge">
 
-                       <p>Restaurant Picture In</p>
+                        <img class="d-block w-70 border-e1" src="{{documents.restorant_picture.out}}" alt="qrimage" height="120px" width="120px">
 
-                   </div>
-                   <div class="popup-card text-center" *ngIf="!documents.restorant_picture.in">
+                    </div>
 
-                       <div class="popup-img-badge" >
-                       
-                               <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
-                           
-                       </div>
+                    <p>Restaurant Picture Out</p>
 
-                       <p>Restaurant Picture In</p>
+                </div>
+                <div class="popup-card text-center" *ngIf="!documents.restorant_picture.out">
 
-                   </div>
-                   <!-- --/ Addhar Card bank-->
+                    <div class="popup-img-badge">
 
-           </div>
+                        <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
 
+                    </div>
 
-           <div class="col-6 text-center mt-4">
+                    <p>Restaurant Picture Out</p>
 
-            <!-- Addhar Card Back-->
-               <div class="popup-card text-center" *ngIf="documents.restorant_picture.out">
+                </div>
+                <!-- --/ Addhar Card bank-->
 
-                   <div class="popup-img-badge" >
-                   
-                           <img class="d-block w-70 border-e1" src="{{documents.restorant_picture.out}}" alt="qrimage" height="120px" width="120px">
-                       
-                   </div>
+            </div>
 
-                   <p>Restaurant Picture Out</p>
+            <div class="col-6 text-center mt-2">
+                <!-- Addhar Card Front -->
+                <div class="popup-card text-center" *ngIf="documents.fssai">
 
-               </div>
-               <div class="popup-card text-center" *ngIf="!documents.restorant_picture.out">
+                    <div class="popup-img-badge">
 
-                   <div class="popup-img-badge" >
-                   
-                           <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
-                       
-                   </div>
+                        <img class="d-block w-70 border-e1" src="{{documents.fssai}}" alt="qrimage" height="120px" width="120px">
 
-                   <p>Restaurant Picture Out</p>
+                    </div>
 
-               </div>
-               <!-- --/ Addhar Card bank-->
+                    <p>Fassai Picture</p>
 
-       </div>
+                </div>
+                <div class="popup-card text-center" *ngIf="!documents.fssai">
 
+                    <div class="popup-img-badge">
+
+                        <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
+
+                    </div>
+
+                    <p>Fassai Picture</p>
+
+                </div>
+                <!-- --/ Addhar Card Front-->
+            </div>
+
+            <div class="col-6 text-center mt-2">
+
+                <!-- Addhar Card Back-->
+                <div class="popup-card text-center" *ngIf="documents.gumasta">
+
+                    <div class="popup-img-badge">
+
+                        <img class="d-block w-70 border-e1" src="{{documents.gumasta}}" alt="qrimage" height="120px" width="120px">
+
+                    </div>
+
+                    <p>Gumasta Picture</p>
+
+                </div>
+                <div class="popup-card text-center" *ngIf="!documents.gumasta">
+
+                    <div class="popup-img-badge">
+
+                        <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
+
+                    </div>
+
+                    <p>Gumasta Picture</p>
+
+                </div>
+
+                <!-- --/ Addhar Card bank-->
+
+            </div>
+
+            <div class="col-6 text-center mt-2">
+
+                <!-- Addhar Card Back-->
+                <div class="popup-card text-center" *ngIf="documents.cancel_check">
+
+                    <div class="popup-img-badge">
+
+                        <img class="d-block w-70 border-e1" src="{{documents.cancel_check}}" alt="qrimage" height="120px" width="120px">
+
+                    </div>
+
+                    <p>Cancel Check</p>
+
+                </div>
+                <div class="popup-card text-center" *ngIf="!documents.cancel_check">
+
+                    <div class="popup-img-badge">
+
+                        <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="120px" width="120px">
+
+                    </div>
+
+                    <p>Cancel Check</p>
+
+                </div>
+
+                <!-- --/ Addhar Card bank-->
+
+            </div>
 
         </div>
-
-       
-
-        
-
 
         <!-- <p *ngIf="documents.aadharcard.front">AdharCard Front Image : <img class="d-block w-70 border-e1" src="{{documents.aadharcard.front}}" alt="qrimage" height="100px" width="100px"></p>
         <p *ngIf="!documents.aadharcard.front">AdharCard Front Image : <img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p>
@@ -292,33 +442,18 @@
         <p *ngIf="!documents.restorant_picture.in">Restaurant Picture In :<img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p>
         <p *ngIf="documents.restorant_picture.out">Restaurant Picture Out :<img class="d-block w-70 border-e1" src="{{documents.restorant_picture.out}}" alt="qrimage" height="100px" width="100px"></p>
         <p *ngIf="!documents.restorant_picture.out">Restaurant Picture Out :<img class="d-block w-70 border-e1" src="../../../../../assets/images/qr/notAvailable.jpg" alt="qrimage" height="100px" width="100px"></p> -->
-        
+
         <div class="popup-info px-3 mt-3">
             <div class="row d-flex justify-content-around">
-                
+
                 <div class="col-6 mt-4">
                     <p>Pancard</p>
                     <h4>{{documents.pancard}}</h4>
                 </div>
-                
-                <div class="col-6 mt-4">
-                    <p>Cancel Check</p>
-                    <h4>{{documents.cancel_check}} 12 CHeck</h4>
-                </div>
-
-                <div class="col-6 mt-4">
-                    <p>Fassai</p>
-                    <h4>{{documents.fssai}} Submitted </h4>
-                </div>
 
                 <div class="col-6 mt-4">
                     <p>GST-IN Number</p>
-                    <h4>{{documents.gstinno}} 78DESE47142</h4>
-                </div>
-
-                <div class="col-6 mt-4">
-                    <p>Gumasta</p>
-                    <h4>{{documents.gumasta}} 14745344</h4>
+                    <h4>{{documents.gstinno}}</h4>
                 </div>
 
                 <div class="col-6 mt-4">
@@ -343,7 +478,7 @@
 
         </div>
 
-       
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="c( 'Save click')">Close</button>

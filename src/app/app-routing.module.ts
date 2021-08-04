@@ -6,12 +6,11 @@ import { AuthComponent } from './theme/layout/auth/auth.component';
 const routes: Routes = [
   {
     path: '',
-    component: AdminComponent,
+    component: AuthComponent,
     children: [
       {
         path: '',
-        redirectTo: 'dashboard/default',
-        pathMatch: 'full'
+        loadChildren: () => import('./components/authentication/authentication.module').then(module => module.AuthenticationModule)
       },
       {
         path: 'dashboard',

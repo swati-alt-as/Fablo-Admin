@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Add Taxes" (options)="false">
+            <div class="row">
+                <div class="col-md-6">
+                    <form [formGroup]="taxForm" (ngSubmit)="saveTax()" action="javascript:">
+                        <div class="form-group">
+                            <label for="tax_name">Taxes Name</label>
+                            <input type="text" class="form-control" id="tax_name" name="tax_name" formControlName="tax_name" placeholder="Enter Taxes Name">
+                            <div *ngIf="f.tax_name.touched && f.tax_name.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.tax_name.errors && f.tax_name.errors.required">Taxes Name is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tax_percent">Taxes Percent</label>
+                            <input type="text" class="form-control" id="tax_percent" name="tax_percent" formControlName="tax_percent" placeholder="Enter Taxes Percent">
+                            <div *ngIf="f.tax_percent.touched && f.tax_percent.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.tax_percent.errors && f.tax_percent.errors.required">Taxes Percent is required.</div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" [disabled]="!taxForm.valid">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </app-card>
+    </div>
+    <div class="col-xl-12">
+        <app-card cardTitle="Taxes List" blockClass="table-border-style">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="data">
+                    </div>
+                </div>
+                <div class="col-lg-4 select-box-bg">
+                    Taxes per Page:
+                    <select (change)="handlePageSizeChange($event)" class="select-box-tophead">
+                        <option *ngFor="let size of pageSizes" [ngValue]="size">
+                            {{ size }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tax Name</th>
+                            <th>Tax Percent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tax of taxList | filter:data | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{tax.tax_name}}</td>
+                            <td>{{tax.tax_percent}} %</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls>
+            </div>
+        </app-card>
+    </div>
+</div>

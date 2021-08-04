@@ -1,0 +1,135 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Add Area" (options)="false">
+            <div class="row">
+                <div class="col-md-6">
+                    <form [formGroup]="areaForm" (ngSubmit)="saveArea()" action="javascript:">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Select City</label>
+                            <select class="form-control" formControlName="city" id="city" name="city">
+                                <option hidden>Select City</option>
+                                <option *ngFor="let city of cityList" [value]="city.id+'+++'+city.name">
+                                    {{city.name}}</option>
+                            </select>
+                            <div *ngIf="f.city.touched && f.city.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.city.errors && f.city.errors.required">City is required.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="area_name">Area Name</label>
+                            <input type="text" class="form-control" id="area_name" name="area_name" formControlName="area_name" placeholder="Enter Area Name">
+                            <div *ngIf="f.area_name.touched && f.area_name.invalid" class="text-danger mt-2">
+                                <div *ngIf="f.area_name.errors && f.area_name.errors.required">Area Name is required.
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" [disabled]="!areaForm.valid">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </app-card>
+    </div>
+    <div class="col-xl-12">
+        <app-card cardTitle="Area List" blockClass="table-border-style">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="data">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <button class="btn btn-outline-primary" (click)="inactiveList(content)">Make Area Active</button>
+                </div>
+                <div class="col-lg-2 select-box-bg">
+                    Area per Page:
+                    <select (change)="handlePageSizeChange($event)" class="select-box-tophead">
+                        <option *ngFor="let size of pageSizes" [ngValue]="size">
+                            {{ size }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>City Name</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let area of activeAreaList | filter:data | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{area.area_name}}</td>
+                            <td>{{area.city_name}}</td>
+                            <td *ngIf="area.status == 1"><button type="button" class="btn btn-icon btn-success" (click)="inactiveStatusChange({id:area._id})"><i
+                                        class="feather icon-check-circle"></i></button></td>
+                            <td *ngIf="area.status == 0"><button type="button" class="btn btn-icon btn-danger" (click)="inactiveStatusChange({id:area._id})"><i
+                                        class="feather icon-slash"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls>
+            </div>
+        </app-card>
+    </div>
+</div>
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">In-Active Area List</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="form-group">
+                    <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="modaldata">
+                </div>
+            </div>
+            <div class="col-lg-4 select-box-bg">
+                Area per Page:
+                <select (change)="modalPageSizeChange($event)" class="select-box-tophead">
+                    <option *ngFor="let size of modalpageSizes" [ngValue]="size">
+                        {{ size }}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>City Name</th>
+                        <th>InActive</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let inactiveArea of inactiveAreaList | filter:modaldata | paginate : { itemsPerPage: modalpageSize, currentPage: modalpage, totalItems: modalcount }; let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{inactiveArea.area_name}}</td>
+                        <td>{{inactiveArea.city_name}}</td>
+                        <td *ngIf="inactiveArea.status == 1"><button type="button" class="btn btn-icon btn-success" (click)="activeStatusChange({id:inactiveArea._id})"><i
+                                    class="feather icon-check-circle"></i></button></td>
+                        <td *ngIf="inactiveArea.status == 0"><button type="button" class="btn btn-icon btn-danger" (click)="activeStatusChange({id:inactiveArea._id})"><i
+                                    class="feather icon-slash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="modalPageChange($event)" class="d-flex justify-content-center"></pagination-controls>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
+    </div>
+</ng-template>

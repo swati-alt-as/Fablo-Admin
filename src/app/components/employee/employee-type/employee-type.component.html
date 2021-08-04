@@ -5,10 +5,10 @@
                 <div class="col-md-6">
                     <form [formGroup]="empTypeForm" (ngSubmit)="saveEmpType()" action="javascript:">
                         <div class="form-group">
-                            <label for="name">Department Type</label>
-                            <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Enter Department Type">
+                            <label for="name">Employee Type</label>
+                            <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Enter Employee Type">
                             <div *ngIf="f.name.touched && f.name.invalid" class="text-danger mt-2">
-                                <div *ngIf="f.name.errors && f.name.errors.required">Department Type is required.</div>
+                                <div *ngIf="f.name.errors && f.name.errors.required">Employee Type is required.</div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -26,23 +26,40 @@
     </div>
     <div class="col-xl-12">
         <app-card cardTitle="Employee Type List" blockClass="table-border-style">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="data">
+                    </div>
+                </div>
+                <div class="col-lg-4 select-box-bg">
+                    Employee Type per Page:
+                    <select (change)="handlePageSizeChange($event)" class="select-box-tophead">
+                        <option *ngFor="let size of pageSizes" [ngValue]="size">
+                            {{ size }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Department Type</th>
+                            <th>Employee Type</th>
                             <th>Code</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let empType of empTypeList">
-                            <td>1</td>
+                        <tr *ngFor="let empType of empTypeList | filter: data | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i=index">
+                            <td>{{i+1}}</td>
                             <td>{{empType.name}}</td>
                             <td>{{empType.code}}</td>
                         </tr>
                     </tbody>
                 </table>
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls>
             </div>
         </app-card>
     </div>

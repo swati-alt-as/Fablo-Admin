@@ -19,6 +19,22 @@
     </div>
     <div class="col-xl-12">
         <app-card cardTitle="Education List" blockClass="table-border-style">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="data">
+                    </div>
+                </div>
+                <div class="col-lg-4 select-box-bg">
+                    Education per Page:
+                    <select (change)="handlePageSizeChange($event)" class="select-box-tophead">
+                        <option *ngFor="let size of pageSizes" [ngValue]="size">
+                            {{ size }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
@@ -28,12 +44,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let edu of educationList">
-                            <td>1</td>
+                        <tr *ngFor="let edu of educationList | filter: data | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i=index">
+                            <td>{{i+1}}</td>
                             <td>{{edu.name}}</td>
                         </tr>
                     </tbody>
                 </table>
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls>
             </div>
         </app-card>
     </div>

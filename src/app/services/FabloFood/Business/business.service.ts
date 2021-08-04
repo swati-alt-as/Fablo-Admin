@@ -10,8 +10,8 @@ import { data } from 'jquery';
 })
 export class BusinessService {
 
-  rooturl = "http://192.168.1.26:3001/";
-  // rooturl = "https://fablo-restaurant-partner-98ykz.ondigitalocean.app/";
+  // rooturl = "http://192.168.1.26:3001/";
+  rooturl = "https://fablo-restaurant-partner-98ykz.ondigitalocean.app/";
   isLoggedIn: boolean = false;  
   public redirectUrl: string;
 

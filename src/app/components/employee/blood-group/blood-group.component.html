@@ -44,14 +44,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let bloodGroup of bloodGroupList">
-                            <td>1</td>
+                        <tr *ngFor="let bloodGroup of bloodGroupList | filter:data | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i=index">
+                            <td>{{i+1}}</td>
                             <td>{{bloodGroup.name}}</td>
                         </tr>
                     </tbody>
                 </table>
                 <!-- <pagination-controls (pageChange)="handlePageChange($event)"></pagination-controls> -->
-                <!-- <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls> -->
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls>
 
             </div>
         </app-card>

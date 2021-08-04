@@ -25,9 +25,9 @@ export class EmployeeTypeComponent implements OnInit {
   empTypeList: any = {};
   page = 1;
   count = 0;
-  pageSize = 10;
+  pageSize = 5;
   pageSizes = [5, 10, 15];
-  data: String;
+  data: string;
 
   constructor(private employee: EmployeeService, private router: Router, private swal: SwalService, private toastr: ToastrserviceService) { }
 

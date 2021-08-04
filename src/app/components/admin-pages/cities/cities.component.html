@@ -1,0 +1,97 @@
+<div class="row">
+    <div class="col-xl-12">
+        <app-card cardTitle="Cities List" blockClass="table-border-style">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="form-group">
+                        <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="data">
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <button class="btn btn-outline-primary" (click)="inactiveList(content)">Make Cities Active</button>
+                </div>
+                <div class="col-lg-2 select-box-bg">
+                    Cities per Page:
+                    <select (change)="handlePageSizeChange($event)" class="select-box-tophead">
+                        <option *ngFor="let size of pageSizes" [ngValue]="size">
+                            {{ size }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>City Name</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let city of activeCitiesList | filter:data | paginate : { itemsPerPage: pageSize, currentPage: page, totalItems: count }; let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{city.name}}</td>
+                            <td *ngIf="city.status == 1"><button type="button" class="btn btn-icon btn-success" (click)="inactiveStatusChange({id:city.id})"><i class="feather icon-check-circle"></i></button></td>
+                            <td *ngIf="city.status == 0"><button type="button" class="btn btn-icon btn-danger" (click)="inactiveStatusChange({id:city.id})"><i class="feather icon-slash"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)" class="d-flex justify-content-center"></pagination-controls>
+            </div>
+        </app-card>
+    </div>
+</div>
+
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">In-Active Cities List</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="form-group">
+                    <input type="text" class="form-control p-3 search-form-control" placeholder="Type to search" [(ngModel)]="modaldata">
+                </div>
+            </div>
+            <div class="col-lg-4 select-box-bg">
+                Cities per Page:
+                <select (change)="modalPageSizeChange($event)" class="select-box-tophead">
+                    <option *ngFor="let size of modalpageSizes" [ngValue]="size">
+                        {{ size }}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>InActive</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let inactiveCities of inactiveCitiesList | filter:modaldata | paginate : { itemsPerPage: modalpageSize, currentPage: modalpage, totalItems: modalcount }; let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{inactiveCities.name}}</td>
+                        <td *ngIf="inactiveCities.status == 1"><button type="button" class="btn btn-icon btn-success" (click)="activeStatusChange({id:inactiveCities.id})"><i class="feather icon-check-circle"></i></button></td>
+                        <td *ngIf="inactiveCities.status == 0"><button type="button" class="btn btn-icon btn-danger" (click)="activeStatusChange({id:inactiveCities.id})"><i class="feather icon-slash"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true" (pageChange)="modalPageChange($event)" class="d-flex justify-content-center"></pagination-controls>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
+    </div>
+</ng-template>

@@ -11,6 +11,8 @@ import { DepartmentComponent } from './department/department.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { EmployeeTypeComponent } from './employee-type/employee-type.component';
 import { SharedModule } from '../../theme/shared/shared.module';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { SharedModule } from '../../theme/shared/shared.module';
   imports: [
     CommonModule,
     EmployeeRoutingModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
     SharedModule
   ]
 })

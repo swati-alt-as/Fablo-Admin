@@ -22,7 +22,7 @@ export class AllbusinessListComponent implements OnInit {
   count = 0;
   pageSize = 10;
   pageSizes = [5, 10, 15];
-  data: String;
+  data: string;
 
   constructor(private business: BusinessService, private router: Router, private swal: SwalService, private toastr: ToastrserviceService) { }
 
@@ -38,5 +38,17 @@ export class AllbusinessListComponent implements OnInit {
     })
   }
 
+
+  
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.ngOnInit();
+  }
+
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.ngOnInit();
+  }
 
 }
