@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-nav-right',
@@ -9,7 +10,13 @@ import {NgbDropdownConfig} from '@ng-bootstrap/ng-bootstrap';
 })
 export class NavRightComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
+
+   logout(){
+    localStorage.setItem('isLoggedIn', "false");
+    this.router.navigate(['/auth/signin'])
+
+  }
 }
