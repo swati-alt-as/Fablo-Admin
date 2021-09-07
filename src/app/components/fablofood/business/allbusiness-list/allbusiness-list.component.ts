@@ -37,8 +37,6 @@ export class AllbusinessListComponent implements OnInit {
       }
     })
   }
-
-
   
   handlePageChange(event: number): void {
     this.page = event;

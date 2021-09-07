@@ -54,6 +54,10 @@ interface createEmpData {
     bank_name: string,
     bank_ifsc: string,
     account_number: string
+  },
+  access: {
+    agent_app: number,
+    onboarding: number
   }
 }
 
@@ -75,6 +79,8 @@ export class CreateEmployeeComponent implements OnInit {
   pageSize = 10;
   pageSizes = [5, 10, 15];
   data: String;
+  agentapp: number;
+  onboarding: number;
   departmentCode: string;
   empTypeCode: string;
   employeeId: string;
@@ -107,6 +113,8 @@ export class CreateEmployeeComponent implements OnInit {
       education: new FormControl('', Validators.required),
       empType: new FormControl('', Validators.required),
       workExp: new FormControl('', Validators.required),
+      agent_app: new FormControl(''),
+      onboarding: new FormControl(''),
     });
 
     this.employee.bloodGroupList().subscribe((result) => {
@@ -160,6 +168,16 @@ export class CreateEmployeeComponent implements OnInit {
     var bloodgroupArray = this.createEmpForm.value["bloodgroup"].split("+++");
     this.departmentCode = departmentArray[2]
     this.empTypeCode = empTypeArray[2]
+    if(this.createEmpForm.value["agent_app"]){
+      this.agentapp = 1;
+    }else{
+      this.agentapp = 0;
+    }
+    if(this.createEmpForm.value["onboarding"]){
+      this.onboarding = 1;
+    }else{
+      this.onboarding = 0;
+    }
     let empIDPostData: createEmpIDData = {
       "departmentCode": this.departmentCode,
       "employeeType": this.empTypeCode,
@@ -168,7 +186,7 @@ export class CreateEmployeeComponent implements OnInit {
       this.result = resultData;
       if (this.result["status"] == true) {
         this.employeeId =  this.result["items"];
-        console.log(this.employeeId)
+        // console.log(this.employeeId)
         localStorage.setItem("employee_code", this.result["items"]);
         let employeePostData: createEmpData = {
           "name": this.createEmpForm.value["name"],
@@ -213,6 +231,10 @@ export class CreateEmployeeComponent implements OnInit {
             "bank_name": this.createEmpForm.value["bank_name"],
             "bank_ifsc": this.createEmpForm.value["bank_ifsc"],
             "account_number": this.createEmpForm.value["account_number"]
+          },
+          "access": {
+              "agent_app": this.agentapp,
+              "onboarding": this.onboarding
           }
         };
         // console.log(employeePostData)
@@ -222,7 +244,7 @@ export class CreateEmployeeComponent implements OnInit {
           if (this.res["status"] == true) {
             this.message = this.res["message"];
             this.toastr.showSuccess(this.message, "Done")
-            this.router.navigate(['/Employee/EmployeeList'])
+            this.router.navigate(['/employee/employeelist'])
             setTimeout(() => {
               window.location.reload();
             }, 5000);
@@ -233,7 +255,7 @@ export class CreateEmployeeComponent implements OnInit {
               window.location.reload();
             }, 5000);
           } else {
-            this.router.navigate(['/Employee/CreateEmployee'])
+            this.router.navigate(['/employee/createemployee'])
           }
         },
           (error: HttpErrorResponse) => {
@@ -246,7 +268,7 @@ export class CreateEmployeeComponent implements OnInit {
         //   window.location.reload();
         // }, 5000);
       } else {
-        this.router.navigate(['/Employee/CreateEmployee'])
+        this.router.navigate(['/employee/createemployee'])
       }
     },
       (error: HttpErrorResponse) => {

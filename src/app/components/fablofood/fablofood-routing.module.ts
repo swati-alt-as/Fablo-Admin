@@ -11,15 +11,15 @@ const routes: Routes = [{
       component: AllbusinessListComponent
     },
     {
-      path: 'BusinessList',
+      path: 'businesslist',
       component: AllbusinessListComponent
     },
     {
-      path: 'BusinessDetails/:businessid',
+      path: 'businessdetails/:businessid',
       component: BusinessDetailsComponent
     },
     {
-      path: 'Kyc-List/:kycStatus',
+      path: 'kyclist/:kycStatus',
       component: KycListComponent
     },
   ]

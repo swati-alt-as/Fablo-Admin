@@ -68,12 +68,12 @@ export class DepartmentComponent implements OnInit {
       } else if (this.result["status"] == false) {
         this.message = this.result["message"];
         this.toastr.showError(this.message, this.result["status"])
-        this.router.navigate(['/Employee/Departments'])
+        this.router.navigate(['/employee/departments'])
         setTimeout(() => {
           window.location.reload();
         }, 5000);
       } else {
-        this.router.navigate(['/Employee/Departments'])
+        this.router.navigate(['/employee/departments'])
       }
     },
       (error: HttpErrorResponse) => {

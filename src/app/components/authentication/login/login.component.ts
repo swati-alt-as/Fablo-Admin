@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
         this.message = result["message"];
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem("token", result["signedToken"]);
-        this.router.navigate(['/Administrator/dashboard'])
+        this.router.navigate(['/administrator/dashboard'])
         setTimeout(() => {
           window.location.reload();
         }, 1000);

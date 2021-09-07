@@ -65,12 +65,12 @@ export class EducationComponent implements OnInit {
       } else if (this.result["status"] == false) {
         this.message = this.result["message"];
         this.toastr.showError(this.message, this.result["status"])
-        this.router.navigate(['/Employee/Educations'])
+        this.router.navigate(['/employee/educations'])
         setTimeout(() => {
           window.location.reload();
         }, 5000);
       } else {
-        this.router.navigate(['/Employee/Educations'])
+        this.router.navigate(['/employee/educations'])
       }
     },
       (error: HttpErrorResponse) => {

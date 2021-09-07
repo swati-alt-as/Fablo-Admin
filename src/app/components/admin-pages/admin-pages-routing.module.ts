@@ -20,27 +20,27 @@ const routes: Routes = [{
       loadChildren: () => import('./dashboard/dashboard.module').then(module => module.DashboardModule)
     },
     {
-      path: 'Charges',
+      path: 'charges',
       component: ChargesComponent
     },
     {
-      path: 'Taxes',
+      path: 'taxes',
       component: TaxesComponent
     },
     {
-      path: 'Countries',
+      path: 'countries',
       component: CountriesComponent
     },
     {
-      path: 'States',
+      path: 'states',
       component: StatesComponent
     },
     {
-      path: 'Cities',
+      path: 'cities',
       component: CitiesComponent
     },
     {
-      path: 'Area',
+      path: 'area',
       component: AreaComponent
     }
   ]

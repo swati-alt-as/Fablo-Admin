@@ -71,12 +71,12 @@ export class ChargesComponent implements OnInit {
       } else if (this.result["status"] == false) {
         this.message = this.result["message"];
         this.toastr.showError(this.message, this.result["status"])
-        this.router.navigate(['/Administrator/Charges'])
+        this.router.navigate(['/administrator/charges'])
         setTimeout(() => {
           window.location.reload();
         }, 5000);
       } else {
-        this.router.navigate(['/Administrator/Charges'])
+        this.router.navigate(['/administrator/charges'])
       }
     },
       (error: HttpErrorResponse) => {

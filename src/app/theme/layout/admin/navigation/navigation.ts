@@ -36,7 +36,7 @@ const NavigationItems = [
         id: 'dashboard',
         title: 'Dashboard',
         type: 'item',
-        url: '/Administrator/dashboard',
+        url: '/administrator/dashboard',
         classes: 'nav-item',
         icon: 'feather icon-home'
       },      
@@ -66,13 +66,13 @@ const NavigationItems = [
             id: 'createEmployee',
             title: 'Create Employee',
             type: 'item',
-            url: '/Employee/CreateEmployee',
+            url: '/employee/createemployee',
           },
           {
             id: 'employeeList',
             title: 'Employee List',
             type: 'item',
-            url: '/Employee/EmployeeList',
+            url: '/employee/employeelist',
           }
         ]
       },
@@ -80,7 +80,7 @@ const NavigationItems = [
         id: 'bloodGroup',
         title: 'Blood Group',
         type: 'item',
-        url: '/Employee/BloodGroups',
+        url: '/employee/bloodgroups',
         classes: 'nav-item',
         icon: 'feather icon-home'
       },
@@ -88,7 +88,7 @@ const NavigationItems = [
         id: 'department',
         title: 'Department',
         type: 'item',
-        url: '/Employee/Departments',
+        url: '/employee/departments',
         classes: 'nav-item',
         icon: 'feather icon-home'
       }, 
@@ -96,7 +96,7 @@ const NavigationItems = [
         id: 'designation',
         title: 'Designation',
         type: 'item',
-        url: '/Employee/Designations',
+        url: '/employee/designations',
         classes: 'nav-item',
         icon: 'feather icon-home'
       }, 
@@ -104,7 +104,7 @@ const NavigationItems = [
         id: 'education',
         title: 'Education',
         type: 'item',
-        url: '/Employee/Educations',
+        url: '/employee/educations',
         classes: 'nav-item',
         icon: 'feather icon-home'
       },    
@@ -112,7 +112,7 @@ const NavigationItems = [
         id: 'workExperience',
         title: 'Work Experience',
         type: 'item',
-        url: '/Employee/WorkExperience',
+        url: '/employee/workexperience',
         classes: 'nav-item',
         icon: 'feather icon-home'
       },    
@@ -120,7 +120,7 @@ const NavigationItems = [
         id: 'employeeType',
         title: 'Employee Type',
         type: 'item',
-        url: '/Employee/EmployeeType',
+        url: '/employee/employeetype',
         classes: 'nav-item',
         icon: 'feather icon-home'
       }, 
@@ -142,25 +142,25 @@ const NavigationItems = [
             id: 'countries',
             title: 'Countries',
             type: 'item',
-            url: '/Administrator/Countries'
+            url: '/administrator/countries'
           },
           {
             id: 'states',
             title: 'States',
             type: 'item',
-            url: '/Administrator/States'
+            url: '/administrator/states'
           },
           {
             id: 'cities',
             title: 'Cities',
             type: 'item',
-            url: '/Administrator/Cities'
+            url: '/administrator/cities'
           },
           {
             id: 'area',
             title: 'Area',
             type: 'item',
-            url: '/Administrator/Area'
+            url: '/administrator/area'
           },
         ]
       },  
@@ -168,7 +168,7 @@ const NavigationItems = [
         id: 'charges',
         title: 'Charges',
         type: 'item',
-        url: '/Administrator/Charges',
+        url: '/administrator/charges',
         classes: 'nav-item',
         icon: 'feather icon-home'
       },
@@ -176,7 +176,7 @@ const NavigationItems = [
         id: 'taxes',
         title: 'Taxes',
         type: 'item',
-        url: '/Administrator/Taxes',
+        url: '/administrator/taxes',
         classes: 'nav-item',
         icon: 'feather icon-home'
       },
@@ -215,13 +215,13 @@ const NavigationItems = [
           //   id: 'marchantlist',
           //   title: 'Marchant List',
           //   type: 'item',
-          //   url: '/Fablo-Food/dashboard',
+          //   url: '/fablofood/dashboard',
           // },
           {
             id: 'businesslist',
             title: 'Business List',
             type: 'item',
-            url: '/Fablo-Food/BusinessList',
+            url: '/fablofood/businesslist',
           }
         ]
       },
@@ -235,25 +235,25 @@ const NavigationItems = [
             id: 'document',
             title: 'Pending List',
             type: 'item',
-            url: '/Fablo-Food/Kyc-List/2',
+            url: '/fablofood/kyclist/2',
           },
           {
             id: 'document',
             title: 'Approved List',
             type: 'item',
-            url: '/Fablo-Food/Kyc-List/1',
+            url: '/fablofood/kyclist/1',
           },
           {
             id: 'document',
             title: 'Rejected List',
             type: 'item',
-            url: '/Fablo-Food/Kyc-List/3',
+            url: '/fablofood/kyclist/3',
           },
           {
             id: 'document',
             title: 'Blocked List',
             type: 'item',
-            url: '/Fablo-Food/Kyc-List/4',
+            url: '/fablofood/kyclist/4',
           }
         ]
       },

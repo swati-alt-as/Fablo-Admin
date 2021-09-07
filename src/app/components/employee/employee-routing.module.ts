@@ -17,35 +17,35 @@ const routes: Routes = [{
       component: EmployeeDetailsComponent
     },
     {
-      path: 'EmployeeList',
+      path: 'employeelist',
       component: EmployeeDetailsComponent
     },
     {
-      path: 'CreateEmployee',
+      path: 'createemployee',
       component: CreateEmployeeComponent
     },
     {
-      path: 'BloodGroups',
+      path: 'bloodgroups',
       component: BloodGroupComponent
     },
     {
-      path: 'Educations',
+      path: 'educations',
       component: EducationComponent
     },
     {
-      path: 'Designations',
+      path: 'designations',
       component: DesignationComponent
     },
     {
-      path: 'Departments',
+      path: 'departments',
       component: DepartmentComponent
     },
     {
-      path: 'WorkExperience',
+      path: 'workexperience',
       component: WorkExperienceComponent
     },
     {
-      path: 'EmployeeType',
+      path: 'employeetype',
       component: EmployeeTypeComponent
     },
   ]

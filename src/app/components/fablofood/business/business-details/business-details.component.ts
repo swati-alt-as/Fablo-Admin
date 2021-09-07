@@ -27,7 +27,9 @@ export class BusinessDetailsComponent implements OnInit {
   constructor(private business: BusinessService, private router: ActivatedRoute, private swal: SwalService, private toastr: ToastrserviceService) { }
 
   ngOnInit(): void {
+    
     let businessId = this.router.snapshot.params.businessid;
+
     // this.spinnerService.show();
     this.business.businessDetails(businessId).subscribe((result) => {
       // this.spinnerService.hide();

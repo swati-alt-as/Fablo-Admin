@@ -65,12 +65,12 @@ export class WorkExperienceComponent implements OnInit {
       } else if (this.result["status"] == false) {
         this.message = this.result["message"];
         this.toastr.showError(this.message, this.result["status"])
-        this.router.navigate(['/Employee/WorkExperience'])
+        this.router.navigate(['/employee/workexperience'])
         setTimeout(() => {
           window.location.reload();
         }, 5000);
       } else {
-        this.router.navigate(['/Employee/WorkExperience'])
+        this.router.navigate(['/employee/workexperience'])
       }
     },
       (error: HttpErrorResponse) => {

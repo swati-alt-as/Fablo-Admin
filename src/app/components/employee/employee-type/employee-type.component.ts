@@ -68,12 +68,12 @@ export class EmployeeTypeComponent implements OnInit {
       } else if (this.result["status"] == false) {
         this.message = this.result["message"];
         this.toastr.showError(this.message, this.result["status"])
-        this.router.navigate(['/Employee/EmployeeType'])
+        this.router.navigate(['/employee/employeetype'])
         setTimeout(() => {
           window.location.reload();
         }, 5000);
       } else {
-        this.router.navigate(['/Employee/EmployeeType'])
+        this.router.navigate(['/employee/employeetype'])
       }
     },
       (error: HttpErrorResponse) => {

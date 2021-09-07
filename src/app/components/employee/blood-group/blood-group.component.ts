@@ -65,12 +65,12 @@ export class BloodGroupComponent implements OnInit {
       } else if (this.result["status"] == false) {
         this.message = this.result["message"];
         this.toastr.showError(this.message, this.result["status"])
-        this.router.navigate(['/Employee/BloodGroups'])
+        this.router.navigate(['/employee/bloodgroups'])
         setTimeout(() => {
           window.location.reload();
         }, 5000);
       } else {
-        this.router.navigate(['/Employee/BloodGroups'])
+        this.router.navigate(['/employee/bloodgroups'])
       }
     },
       (error: HttpErrorResponse) => {

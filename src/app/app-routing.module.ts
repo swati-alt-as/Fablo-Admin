@@ -25,7 +25,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'Administrator',
+    path: 'administrator',
     component: AdminComponent,
     children: [
       {
@@ -35,7 +35,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'Employee',
+    path: 'employee',
     component: AdminComponent,
     children: [
       {
@@ -45,7 +45,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'Fablo-Food',
+    path: 'fablofood',
     component: AdminComponent,
     children: [
       {

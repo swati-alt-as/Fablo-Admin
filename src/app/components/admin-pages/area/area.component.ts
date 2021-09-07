@@ -93,12 +93,12 @@ export class AreaComponent implements OnInit {
       } else if (this.result["status"] == false) {
         this.message = this.result["message"];
         this.toastr.showError(this.message, this.result["status"])
-        this.router.navigate(['/Administrator/Area'])
+        this.router.navigate(['/administrator/area'])
         setTimeout(() => {
           window.location.reload();
         }, 5000);
       } else {
-        this.router.navigate(['/Administrator/Area'])
+        this.router.navigate(['/administrator/area'])
       }
     },
       (error: HttpErrorResponse) => {

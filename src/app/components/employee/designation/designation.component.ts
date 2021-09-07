@@ -68,12 +68,12 @@ export class DesignationComponent implements OnInit {
       } else if (this.result["status"] == false) {
         this.message = this.result["message"];
         this.toastr.showError(this.message, this.result["status"])
-        this.router.navigate(['/Employee/Designations'])
+        this.router.navigate(['/employee/designations'])
         setTimeout(() => {
           window.location.reload();
         }, 5000);
       } else {
-        this.router.navigate(['/Employee/Designations'])
+        this.router.navigate(['/employee/designations'])
       }
     },
       (error: HttpErrorResponse) => {
